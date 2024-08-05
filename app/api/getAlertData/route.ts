@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/alertText?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/alerts?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
       { cache: "no-cache" }
     );
 
@@ -20,4 +20,4 @@ export async function GET() {
     console.error("Error fetching alert text:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
-}
+}   

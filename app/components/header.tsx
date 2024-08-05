@@ -32,7 +32,20 @@ export default function Header() {
   return (
       <header>
           {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
-          <h1 className="ml-10 mt-4">Condor Method</h1>
+          
+          {/* <Main Nav Sections */}
+          <nav className="flex items-center justify-between p-4">
+            <h1 className="ml-10 mt-2">Condor Method</h1>
+            <div id="sections">
+              <a href="#" className="mr-6 hover:underline">Shop</a>
+              <a href="#" className="mr-6 hover:underline">Sesh</a>
+              <a href="#" className="mr-6 hover:underline">Projects</a>
+              <a href="#" className="mr-6 hover:underline">Thoughts</a>
+              <a href="#" className="mr-6 hover:underline">About</a>
+            </div>
+          </nav>
+          
+
       </header>
   );
 }
