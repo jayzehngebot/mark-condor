@@ -6,8 +6,8 @@ interface AlertProps {
 
 export default function Alert({alertText}) {
     return (
-        <div className="bg-green-500 text-white p-4">
-            <p className="ml-6">{alertText}</p>
+        <div className="container inline-flex bg-green-500 text-white p-4">
+            <div className="flex items-center justify-center w-full">{alertText}</div>
         </div>
     );
 }
