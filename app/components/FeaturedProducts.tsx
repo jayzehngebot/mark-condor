@@ -44,8 +44,8 @@ export default function FeaturedProduct() {
     <div className='w-full'>
       <div className='flex flex-wrap'>
         {featuredProducts.map((product: Product) => (
-          <div className='flex-grow'>
-            <ProductCard key={product.id} productData={product} />
+          <div key={product.id} className='flex-grow'>
+            <ProductCard productData={product} />
           </div>
         ))}
       </div>
