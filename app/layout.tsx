@@ -1,23 +1,49 @@
+'use client';
+
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import Alert from "./components/Alert";
+import { useState, useEffect } from 'react';
 
-const inter = Inter({ subsets: ["latin"] });
+const figtree = Figtree({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Mark Condor : American Tidyguy",
-  description: "Mark Condor is the American Tidyguy",
-};
+async function getAlertData() {
+  try {
+    const response = await fetch('/api/getAlertData', { cache: "no-cache" });
+    
+    if (!response.ok) {
+      throw new Error("Failed to fetch alert data");
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching alert text:", error);
+    throw error;
+  }
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const [alertData, setAlertData] = useState(null);
+
+  useEffect(() => {
+      getAlertData()
+          .then(data => setAlertData(data))
+          .catch(error => console.error("Error setting alert data:", error));
+  }, []);
+
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={figtree.className}>
+  
+        {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
+
         <Header />
         {children}
       </body>

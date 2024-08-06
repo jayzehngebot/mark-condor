@@ -16,8 +16,8 @@ export async function GET() {
     const [headers, ...rows] = data.values;
 
     // Function to transform the array to a JSON object
-    const transformData = (row) => {
-      return row.reduce((acc, value, index) => {
+    const transformData = (row: any) => {
+      return row.reduce((acc: any, value: any, index: any) => {
         if (value === "TRUE") {
           acc[headers[index]] = true;
         } else if (value === "FALSE") {

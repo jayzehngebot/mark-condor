@@ -20,12 +20,14 @@ async function getProductData() {
 interface Product {
   id: string;
   featured: boolean;
-  // Add other properties as needed
+  name: string;
+  productURL: string;
+  imageURL: string;
 }
 
 export default function FeaturedProduct() {
-  const [productData, setProductData] = useState(null);
-  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [productData, setProductData] = useState<Product[] | null>(null);
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     getProductData()
@@ -41,8 +43,10 @@ export default function FeaturedProduct() {
   return (
     <div className='w-full'>
       <div className='flex flex-wrap'>
-        {featuredProducts.map(product => (
-          <ProductCard key={product.id} productData={product} />
+        {featuredProducts.map((product: Product) => (
+          <div className='flex-grow'>
+            <ProductCard key={product.id} productData={product} />
+          </div>
         ))}
       </div>
     </div>

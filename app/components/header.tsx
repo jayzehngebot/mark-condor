@@ -1,47 +1,22 @@
 // header comp
 'use client'
-import { useState, useEffect } from 'react';
-import Alert from "./alert";
-
-async function getAlertData() {
-  try {
-    const response = await fetch('/api/getAlertData', { cache: "no-cache" });
-    
-    if (!response.ok) {
-      throw new Error("Failed to fetch alert data");
-    }
-    
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching alert text:", error);
-    throw error;
-  }
-}
 
 export default function Header() {
-  const [alertData, setAlertData] = useState(null);
 
-  useEffect(() => {
-      getAlertData()
-          .then(data => setAlertData(data))
-          .catch(error => console.error("Error setting alert data:", error));
-  }, []);
-
-  console.log('alertData : '+ alertData);
 
   return (
-      <header>
-          {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
+      <header className="bg-slate-100 h-10">
           
           {/* <Main Nav Sections */}
-          <nav className="flex items-center justify-between p-4">
-            <h1 className="ml-10 mt-2">Condor Method</h1>
-            <div id="sections">
-              <a href="#" className="mr-6 hover:underline">Shop</a>
-              <a href="#" className="mr-6 hover:underline">Sesh</a>
-              <a href="#" className="mr-6 hover:underline">Projects</a>
-              <a href="#" className="mr-6 hover:underline">Thoughts</a>
-              <a href="#" className="mr-6 hover:underline">About</a>
+          <nav className="flex items-center justify-between p-2 mt-1">
+            <h1 className="ml-2 sm:ml-4 md:ml-10"><a href="/">Condor Method</a></h1>
+            <div id="sections" className="hidden sm:flex">
+              <a href="/shop" className="mr-6 hover:underline">Shop</a>
+              <a href="/projects" className="mr-6 hover:underline">Projects</a>
+              <a href="/testimony" className="mr-6 hover:underline">Testimony</a>
+              <a href="/hire" className="mr-6 hover:underline">You x MC</a>
+              <a href="/thoughts" className="mr-6 hover:underline">Thoughts</a>
+              <a href="/about" className="mr-6 hover:underline">About</a>
             </div>
           </nav>
           
