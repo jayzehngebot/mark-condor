@@ -12,7 +12,6 @@ export async function GET() {
         }
     
         const data = await response.json();
-        console.log('data from fetch api : ' + data.values);
         const [headers, ...rows] = data.values; 
 
         const transformTestimonyData = (data: any) => {

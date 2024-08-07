@@ -1,9 +1,10 @@
 
 
 import Image from "next/image";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const FeaturedProducts = dynamic(() => import("./components/FeaturedProducts"), { ssr: false });
+// const FeaturedProducts = dynamic(() => import("./components/FeaturedProducts"), { ssr: false });
+import FeaturedProducts from "./components/FeaturedProducts";
 
 import { Metadata } from "next";
 

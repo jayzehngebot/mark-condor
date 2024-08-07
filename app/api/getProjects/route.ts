@@ -12,7 +12,6 @@ export async function GET() {
     }
 
     const data = await response.json();
-    // console.log('data from fetch api : ' + data.values);
     const [headers, ...rows] = data.values;
 
     // Function to transform the array to a JSON object
@@ -24,9 +23,6 @@ export async function GET() {
 
     // Transform the rows into an array of objects
     const transformedData = rows.map(transformData);
-
-    // Output the transformed data
-    console.log(transformedData);
 
     return NextResponse.json(transformedData);
     // return NextResponse.json([enabled, alert]);

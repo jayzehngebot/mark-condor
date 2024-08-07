@@ -39,7 +39,6 @@ async function fetchProducts() {
 
 export default async function Shop() {
     const products = await fetchProducts();
-    console.log(products);
     return (
         <div className="flex flex-col items-center p-10">
             <h1 className="text-4xl font-bold text-center mt-10 mb-10">MC Endorsed Products</h1>

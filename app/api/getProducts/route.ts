@@ -4,7 +4,7 @@ export async function GET() {
   try {
     const response = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/products?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-      { next: { revalidate: 300 } } // 5 mins
+      { next: { revalidate: 10 } } // 10 sec
     );
 
     if (!response.ok) {
@@ -12,7 +12,6 @@ export async function GET() {
     }
 
     const data = await response.json();
-    // console.log('data from fetch api : ' + data.values);
     const [headers, ...rows] = data.values;
 
     // Function to transform the array to a JSON object
@@ -33,7 +32,6 @@ export async function GET() {
     const transformedData = rows.map(transformData);
 
     // Output the transformed data
-    console.log(transformedData);
 
     return NextResponse.json(transformedData);
     // return NextResponse.json([enabled, alert]);
