@@ -26,9 +26,8 @@ export default function Home() {
 
       <div className="bottom-30 left-0 right-0 mb-32 grid text-center">
       <hr className="w-full mx-auto text-slate mb-2"/>
-      <h3 className="text-center w-full mb-4">Featured Products</h3>
+      <h3 className="text-center w-full mb-4 text-lg pt-1">Featured Products</h3>
 
-      {/* loop through featured products and present them. link them */}
       <FeaturedProducts />
       </div>
     </main>

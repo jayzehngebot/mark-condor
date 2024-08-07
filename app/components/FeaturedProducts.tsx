@@ -37,7 +37,7 @@ interface Product {
 export default async function Shop() {
     const products = await fetchProducts();
     return (
-        <div className="flex flex-col items-center pt-4">
+        <div className="flex flex-col items-center">
             <ul className="flex wx-auto">
                 {products.map((product: any) => (
                     <ProductCard key={product.id} productData={product} />
