@@ -11,9 +11,9 @@ interface ProductData {
 export default function ProductCard({productData}: {productData: ProductData}) {
     return (
         <div className="flex flex-col items-center">
-            <h1 className="text-slate">{productData.name}</h1>
             <a href={productData.productURL} target="_blank">
-            <Image
+                <h1 className="text-slate">{productData.name}</h1>
+                <Image
                 src={`/products/images/${productData.imageURL}`}
                 alt={productData.name}
                 width={150}
