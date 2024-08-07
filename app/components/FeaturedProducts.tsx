@@ -37,8 +37,7 @@ interface Product {
 export default async function Shop() {
     const products = await fetchProducts();
     return (
-        <div className="flex flex-col items-center p-10">
-            <h1 className="text-4xl font-bold text-center mt-10 mb-10">MC Endorsed Products</h1>
+        <div className="flex flex-col items-center pt-4">
             <ul className="flex wx-auto">
                 {products.map((product: any) => (
                     <ProductCard key={product.id} productData={product} />

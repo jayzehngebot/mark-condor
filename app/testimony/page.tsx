@@ -28,7 +28,7 @@ export default function Testimony() {
 
     return (
         <div className="flex flex-col items-center p-10">
-            <h1 className="text-4xl font-bold text-center mt-10">Testimonials</h1>
+            <h1 className="text-4xl font-bold text-center mt-4">Testimonials</h1>
             <ul className="flex flex-col items-center w-4/6">
                 {testimony.map((testimony) => (
                     <div key={testimony.id} className="flex flex-col p-10">

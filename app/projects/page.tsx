@@ -33,8 +33,8 @@ export default function Projects() {
     }, [])
 
     return (
-        <div className="flex flex-col items-center justify-center h-auto mt-40">
-            <h1 className="text-4xl font-bold">Projects</h1>
+        <div className="flex flex-col items-center justify-center h-auto p-10">
+            <h1 className="text-4xl font-bold mt-4">Projects</h1>
             <ul>
                 {Array.isArray(projects) ? (
                     projects.map((project) => (

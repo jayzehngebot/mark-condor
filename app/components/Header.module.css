@@ -1,0 +1,10 @@
+.dropdownClosed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.05s ease-out;
+  }
+  
+  .dropdownOpen {
+    max-height: 100vh; /* or a specific height if you prefer */
+    transition: max-height 0.05s ease-in;
+  }

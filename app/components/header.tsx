@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react';
+import Link from 'next/link'
+import styles from './Header.module.css'; // Import the CSS module
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,14 +14,14 @@ export default function Header() {
   return (
     <header className="bg-slate-100 h-10">
       <nav className="flex items-center justify-between h-10 p-3 mt-0 text-slate-400">
-        <h1 className="ml-2 sm:ml-4 md:ml-10">
-          <a href="/">Condor Method</a>
+        <h1 className="mt-1 ml-2 sm:ml-4 md:ml-10">
+          <Link href="/">Condor Method</Link>
         </h1>
         <div className="relative md:hidden">
           <button 
             id="dropdownDefaultButton" 
             data-dropdown-toggle="dropdown" 
-            className="text-white w-full bg-blue-700 ml-50 mr-5 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm pl-6 py-0 text-center inline-flex items-center" 
+            className="text-white w-full bg-blue-700 ml-50 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm pl-6 py-0 text-center inline-flex items-center" 
             type="button"
             onClick={toggleDropdown}
           >
@@ -28,49 +30,47 @@ export default function Header() {
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
             </svg>
           </button>
-          {isOpen && (
-            <div id="dropdown" className="z-50 absolute right-0 top-full w-full bg-slate-100 rounded-b divide-y bg-color-grey divide-gray-100 shadow bg-gray-700">
-              <ul className="py-2 text-md text-gray-200 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                <li>
-                  <a href="/shop" className="block px-6 py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Shop</a>
-                </li>
-                <li>
-                  <a href="/projects" className="block px-6 py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Projects</a>
-                </li>
-                <li>
-                  <a href="/testimony" className="block px-6 py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Testimony</a>
-                </li>
-                <li>
-                  <a href="/hire" className="block px-6 py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">You x MC</a>
-                </li>
-                <li>
-                  <a href="/thoughts" className="block px-6 py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Thoughts</a>
-                </li>
-                <li>
-                  <a href="/about" className="block px-6 py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">About</a>
-                </li>
-              </ul>
-            </div>
-          )}
+          <div id="dropdown" className={`${isOpen ? styles.dropdownOpen : styles.dropdownClosed} z-50 absolute right-[-12px] w-full bg-slate-100 rounded-b divide-y bg-color-grey divide-gray-100 shadow bg-gray-700`}>
+            <ul className="py-2 text-md text-gray-200 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <Link href="/shop" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Shop</Link>
+              </li>
+              <li>
+                <Link href="/projects" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Projects</Link>
+              </li>
+              <li>
+                <Link href="/testimony" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Testimony</Link>
+              </li>
+              <li>
+                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">You x MC</Link>
+              </li>
+              <li>
+                <Link href="/thoughts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Thoughts</Link>
+              </li>
+              <li>
+                <Link href="/about" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">About</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <ul className="hidden md:flex space-x-4 mr-10">
+        <ul className="hidden md:flex space-x-4 mt-1 mr-10">
           <li>
-            <a href="/shop" className="hover:text-blue-700">Shop</a>
+            <Link href="/shop" className="hover:text-blue-700">Shop</Link>
           </li>
           <li>
-            <a href="/projects" className="hover:text-blue-700">Projects</a>
+            <Link href="/projects" className="hover:text-blue-700">Projects</Link>
           </li>
           <li>
-            <a href="/testimony" className="hover:text-blue-700">Testimony</a>
+            <Link href="/testimony" className="hover:text-blue-700">Testimony</Link>
           </li>
           <li>
-            <a href="/hire" className="hover:text-blue-700">You x MC</a>
+            <Link href="/hire" className="hover:text-blue-700">You x MC</Link>
           </li>
           <li>
-            <a href="/thoughts" className="hover:text-blue-700">Thoughts</a>
+            <Link href="/thoughts" className="hover:text-blue-700">Thoughts</Link>
           </li>
           <li>
-            <a href="/about" className="hover:text-blue-700">About</a>
+            <Link href="/about" className="hover:text-blue-700">About</Link>
           </li>
         </ul>
       </nav>
