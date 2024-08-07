@@ -1,16 +1,16 @@
 import Head from 'next/head'
+import { Metadata } from 'next'
 
-export function getStaticPaths() {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
     return {
-      paths: generateStaticParams().map(({ id }) => ({ params: { id } })),
-      fallback: false,
-    };
-  }
+        title: `Project ${params.id}`,
+        description: `Project ${params.id}`,
+    }
+}
 
 export function generateStaticParams() {
     return [{ id: '1' }, { id: '2' }, { id: '3' }]
   }
-
 
   export default function Page({ params }: { params: { id: string } }) {
     const { id } = params;

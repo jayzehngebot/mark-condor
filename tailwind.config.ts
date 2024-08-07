@@ -14,6 +14,14 @@ const config: Config = {
       slate: "#64748b",
       grey: "#f1f5f9",
       "slate-100": "#1e293b",
+      "slate-200": "#f1f5f9",
+      "slate-300": "#e2e8f0",
+      "slate-400": "#cbd5e1",
+      "slate-500": "#94a3b8",
+      "slate-600": "#64748b",
+      "slate-700": "#475569",
+      "slate-800": "#334155",
+      "slate-900": "#1e293b",
     },
     extend: {
       backgroundImage: {

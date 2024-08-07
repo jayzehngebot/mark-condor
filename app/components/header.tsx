@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="bg-slate-100 h-10">
-      <nav className="flex items-center justify-between h-10 p-3 mt-0">
+      <nav className="flex items-center justify-between h-10 p-3 mt-0 text-slate-400">
         <h1 className="ml-2 sm:ml-4 md:ml-10">
           <a href="/">Condor Method</a>
         </h1>
@@ -53,7 +53,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <ul className="hidden md:flex space-x-4">
+        <ul className="hidden md:flex space-x-4 mr-10">
           <li>
             <a href="/shop" className="hover:text-blue-700">Shop</a>
           </li>

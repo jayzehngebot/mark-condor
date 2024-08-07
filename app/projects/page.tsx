@@ -1,9 +1,15 @@
-// page showing all projects
 'use client'
+// page showing all projects
 
+import { Metadata } from 'next'
 import { useEffect, useState } from 'react'
 // fetch projects api
 import { GET } from '../api/getProjects/route';
+
+const metadata: Metadata = {
+    title: "Projects",
+    description: "List of all projects",
+};
 
 type Project = {
     id: number;
