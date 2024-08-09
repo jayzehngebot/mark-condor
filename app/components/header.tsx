@@ -15,7 +15,7 @@ export default function Header() {
     <header className="bg-slate-100 h-10">
       <nav className="flex items-center justify-between h-10 p-3 mt-0 text-slate-400">
         <h1 className="mt-1 ml-2 sm:ml-4 md:ml-10">
-          <Link href="/">Condor Method</Link>
+          <Link href="/">Mark Condor</Link>
         </h1>
         <div className="relative md:hidden">
           <button 

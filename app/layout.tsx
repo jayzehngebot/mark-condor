@@ -4,6 +4,7 @@ import { Figtree } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Alert from "./components/Alert";
+import Footer from "./components/Footer";
 import { useState, useEffect } from 'react';
 
 const figtree = Figtree({ subsets: ["latin"] });
@@ -39,12 +40,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={figtree.className}>
+        <body className={`${figtree.className} min-h-screen flex flex-col`}>
   
         {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
 
         <Header />
         {children}
+        <Footer />
+
       </body>
     </html>
   );
