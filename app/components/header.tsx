@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
 
@@ -10,6 +11,9 @@ export default function Header() {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  const pathname = usePathname()
+  const isActive = (path: string) => pathname === path;
 
   return (
     <header className="bg-slate-100 h-10">
@@ -55,22 +59,22 @@ export default function Header() {
         </div>
         <ul className="hidden md:flex space-x-4 mt-1 mr-10">
           <li>
-            <Link href="/shop" className="hover:text-blue-700">Shop</Link>
+            <Link href="/shop" className={`hover:text-blue-700 ${isActive('/shop') ? 'underline' : ''}`}>Shop</Link>
           </li>
           <li>
-            <Link href="/projects" className="hover:text-blue-700">Projects</Link>
+            <Link href="/projects" className={`hover:text-blue-700 ${isActive('/projects') ? 'underline' : ''}`}>Projects</Link>
           </li>
           <li>
-            <Link href="/testimony" className="hover:text-blue-700">Testimony</Link>
+            <Link href="/testimony" className={`hover:text-blue-700 ${isActive('/testimony') ? 'underline' : ''}`}>Testimony</Link>
           </li>
           <li>
-            <Link href="/hire" className="hover:text-blue-700">You x MC</Link>
+            <Link href="/hire" className={`hover:text-blue-700 ${isActive('/hire') ? 'underline' : ''}`}>You x MC</Link>
           </li>
           <li>
-            <Link href="/thoughts" className="hover:text-blue-700">Thoughts</Link>
+            <Link href="/thoughts" className={`hover:text-blue-700 ${isActive('/thoughts') ? 'underline' : ''}`}>Thoughts</Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-blue-700">About</Link>
+            <Link href="/about" className={`hover:text-blue-700 ${isActive('/about') ? 'underline' : ''}`}>About</Link>
           </li>
         </ul>
       </nav>

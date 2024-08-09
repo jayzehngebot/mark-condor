@@ -34,7 +34,7 @@ export default function Projects() {
 
     return (
         <div className="flex flex-col items-center justify-center h-auto p-10">
-            <h1 className="text-4xl font-bold mt-4">Projects</h1>
+            <h1 className="text-4xl text-center mt-4 text-slate-400">Projects</h1>
             <ul>
                 {Array.isArray(projects) ? (
                     projects.map((project) => (

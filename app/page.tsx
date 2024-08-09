@@ -19,7 +19,7 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between px-6">
 
       <div className="container inline-block mx-auto h-[30vh] text-center mt-10">
-        <h1 className="text-4xl font-bold">Condor Method</h1>
+        <h1 className="text-4xl text-center mt-4 text-slate-400">The Condor Method</h1>
       </div>
 
       <div className="bottom-30 left-0 right-0 mb-32 grid text-center">
