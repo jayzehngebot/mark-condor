@@ -11,7 +11,7 @@ const figtree = Figtree({ subsets: ["latin"] });
 
 async function getAlertData() {
   try {
-    const response = await fetch('/api/getAlertData', { cache: "no-cache" });
+    const response = await fetch('/api/getAlertdata', { cache: "no-cache" });
     
     if (!response.ok) {
       throw new Error("Failed to fetch alert data");
