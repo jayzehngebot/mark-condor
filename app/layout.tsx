@@ -2,9 +2,9 @@
 
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Alert from "./components/Alert";
-import Footer from "./components/Footer";
+import Header from "./components/Header.tsx";
+import Alert from "./components/Alert.tsx";
+import Footer from "./components/Footer.tsx";
 import { useState, useEffect } from 'react';
 
 const figtree = Figtree({ subsets: ["latin"] });

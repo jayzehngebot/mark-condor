@@ -24,6 +24,7 @@ export async function GET() {
     // Transform the rows into an array of objects
     const transformedData = rows.map(transformData);
 
+    console.log(transformedData);
     return NextResponse.json(transformedData);
     // return NextResponse.json([enabled, alert]);
   } catch (error) {

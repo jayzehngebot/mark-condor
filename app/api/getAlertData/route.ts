@@ -4,7 +4,7 @@ export async function GET() {
   try {
     const response = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/alerts?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-      { next: { revalidate: 10 } } // 5 mins
+      { next: { revalidate: 3000 } } // 5 mins
     );
 
     if (!response.ok) {
