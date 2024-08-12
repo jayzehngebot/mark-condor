@@ -10,7 +10,7 @@ interface ProductData {
 
 export default function ProductCard({productData}: {productData: ProductData}) {
     return (
-        <div className="flex flex-col items-center">
+        <li className="flex flex-col items-center">
             <a href={productData.productURL} target="_blank">
                 <h1 className="text-slate text-center">{productData.name}</h1>
                 <Image
@@ -22,6 +22,6 @@ export default function ProductCard({productData}: {productData: ProductData}) {
                 placeholder="blur"
                 />
             </a>
-        </div>
+        </li>
     );
 }
