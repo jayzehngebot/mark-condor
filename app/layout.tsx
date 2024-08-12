@@ -9,9 +9,9 @@ import { useState, useEffect } from 'react';
 
 const figtree = Figtree({ subsets: ["latin"] });
 
-async function getAlertData() {
+async function getAlerts() {
   try {
-    const response = await fetch('/api/getAlertData', { cache: "no-cache" });
+    const response = await fetch('/api/getAlerts', { cache: "no-cache" });
     
     if (!response.ok) {
       throw new Error("Failed to fetch alert data");
@@ -33,7 +33,7 @@ export default function RootLayout({
   const [alertData, setAlertData] = useState(null);
 
   useEffect(() => {
-      getAlertData()
+      getAlerts()
           .then(data => setAlertData(data))
           .catch(error => console.error("Error setting alert data:", error));
   }, []);
