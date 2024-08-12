@@ -21,6 +21,3 @@ export async function GET() {
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
-
-// Explicitly export the GET function to ensure the file is recognized as a module
-export default GET;
