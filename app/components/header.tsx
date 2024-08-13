@@ -46,13 +46,19 @@ export default function Header() {
                 <Link href="/testimony" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Testimony</Link>
               </li>
               <li>
-                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">You x MC</Link>
+                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">You x M.C.</Link>
               </li>
               <li>
                 <Link href="/thoughts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Thoughts</Link>
               </li>
               <li>
+                <Link href="/sources" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Sources</Link>
+              </li>
+              <li>
                 <Link href="/about" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">About</Link>
+              </li>
+              <li>
+                <Link href="/deepcuts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Deep Cuts</Link>
               </li>
             </ul>
           </div>
@@ -74,7 +80,13 @@ export default function Header() {
             <Link href="/thoughts" className={`hover:text-blue-700 ${isActive('/thoughts') ? 'underline' : ''}`}>Thoughts</Link>
           </li>
           <li>
+            <Link href="/sources" className={`hover:text-blue-700 ${isActive('/sources') ? 'underline' : ''}`}>Sources</Link>
+          </li>
+          <li>
             <Link href="/about" className={`hover:text-blue-700 ${isActive('/about') ? 'underline' : ''}`}>About</Link>
+          </li>
+          <li>
+            <Link href="/deepcuts" className={`hover:text-blue-700 ${isActive('/deepcuts') ? 'underline' : ''}`}>Deep Cuts</Link>
           </li>
         </ul>
       </nav>
