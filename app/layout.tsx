@@ -17,6 +17,7 @@ async function getAlerts() {
       throw new Error("Failed to fetch alert data");
     }
     
+    console.log(response.json);
     return await response.json();
   } catch (error) {
     console.error("Error fetching alert text:", error);
