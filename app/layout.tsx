@@ -2,8 +2,8 @@
 
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Alert from "./components/Alert";
+import Header from "./components/Nuheader";
+import Alert from "./components/Nualert";
 import Footer from "./components/Footer";
 import { useState, useEffect } from 'react';
 
