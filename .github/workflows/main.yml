@@ -27,5 +27,6 @@ jobs:
           cd /home/ec2-user/mc
           # Example commands to restart services, install dependencies, etc.
           npm install
+          npm run build
           pm2 restart all
         EOF
