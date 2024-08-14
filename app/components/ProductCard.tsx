@@ -5,6 +5,7 @@ interface ProductData {
     name: string;
     productURL: string;
     imageURL: string;
+    alt: string;
 }
 
 
@@ -15,7 +16,7 @@ export default function ProductCard({productData}: {productData: ProductData}) {
                 <h1 className="text-slate text-center">{productData.name}</h1>
                 <Image
                 src={`/products/images/${productData.imageURL}`}
-                alt={productData.name}
+                alt={productData.alt}
                 width={150}
                 height={150}
                 blurDataURL="data:..."
