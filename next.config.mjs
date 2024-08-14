@@ -1,12 +1,15 @@
-import withBundleAnalyzer from '@next/bundle-analyzer';
-
-const bundleAnalyzer = withBundleAnalyzer({
-    enabled: process.env.ANALYZE === 'true',
-});
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import nrExternals from '@newrelic/next/load-externals.js';
 
-// export default withBundleAnalyzer(nextConfig);
+const nextConfig = {
+  experimental: {
+    serverComponentsExternalPackages: ['newrelic']
+  },
+  webpack: (config) => {
+    nrExternals(config);
+    return config;
+  }
+};
+
+
 export default nextConfig;
-    
