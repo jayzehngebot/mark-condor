@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
+import Alert from './Nualert'; // Import the default export
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +13,39 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
 
+
+  async function getAlerts() {
+    try {
+      const response = await fetch('/api/getAlerts', { cache: "no-cache" });
+      
+      if (!response.ok) {
+        throw new Error("Failed to fetch alert data");
+      }
+      
+      console.log(response.json);
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching alert text:", error);
+      throw error;
+    }
+  }
+
+  const [alertData, setAlertData] = useState(null);
+
+  useEffect(() => {
+      getAlerts()
+          .then(data => setAlertData(data))
+          .catch(error => console.error("Error setting alert data:", error));
+  }, []);
+
   const pathname = usePathname()
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="bg-slate-100 h-10">
+    <header className={`bg-slate-100 ${alertData && alertData[0] === "TRUE" ? 'h-22' : 'h-10'}`}> 
+      
+      {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
+      
       <nav className="flex items-center justify-between h-10 p-3 mt-0 text-slate-400">
         <h1 className="mt-1 ml-2 sm:ml-4 md:ml-10">
           <Link href="/">Mark Condor</Link>
