@@ -2,9 +2,11 @@
 
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Nuheader";
-import Alert from "./components/Nualert";
+import Header from "./components/Nuheader"; // Updated import
+import Alert from "./components/Nualert"; // Fixed import
 import Footer from "./components/Footer";
+import Bug from "./components/Bug";
+
 import { useState, useEffect } from 'react';
 
 const figtree = Figtree({ subsets: ["latin"] });
@@ -32,6 +34,7 @@ export default function RootLayout({
 }>) {
 
   const [alertData, setAlertData] = useState(null);
+  const [isSquashed, setIsSquashed] = useState(false);
 
   useEffect(() => {
       getAlerts()
@@ -45,11 +48,12 @@ export default function RootLayout({
   
         {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
 
-        <Header />
+        <Header isSquashed={isSquashed} />
         {children}
+        <Bug isSquashed={isSquashed} setIsSquashed={setIsSquashed} />
         <Footer />
 
       </body>
     </html>
-  );
+  );  
 }

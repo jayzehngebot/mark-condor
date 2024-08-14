@@ -1,16 +1,28 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
 
-export default function Header() {
+interface HeaderProps {
+  isSquashed: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isSquashed }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDeepCutsVisible, setIsDeepCutsVisible] = useState(false); // Add state for Deep Cuts visibility
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  // Example effect to show Deep Cuts when a certain condition is met
+  useEffect(() => {
+    if (isSquashed) {
+      setIsDeepCutsVisible(true);
+    }
+  }, [isSquashed]);
 
   const pathname = usePathname()
   const isActive = (path: string) => pathname === path;
@@ -57,13 +69,16 @@ export default function Header() {
               <li>
                 <Link href="/about" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">About</Link>
               </li>
-              <li>
+              <li className={`${isDeepCutsVisible ? '' : 'hidden'}`}> {/* Conditionally hide Deep Cuts */}
                 <Link href="/deepcuts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Deep Cuts</Link>
               </li>
             </ul>
           </div>
         </div>
         <ul className="hidden md:flex space-x-4 mt-1 mr-10">
+          <li className={`${isDeepCutsVisible ? '' : 'hidden'}`}> {/* Conditionally hide Deep Cuts */}
+            <Link href="/deepcuts" className={`hover:text-blue-700 ${isActive('/deepcuts') ? 'underline' : ''}`}>Deep Cuts</Link>
+          </li>
           <li>
             <Link href="/shop" className={`hover:text-blue-700 ${isActive('/shop') ? 'underline' : ''}`}>Shop</Link>
           </li>
@@ -85,11 +100,11 @@ export default function Header() {
           <li>
             <Link href="/about" className={`hover:text-blue-700 ${isActive('/about') ? 'underline' : ''}`}>About</Link>
           </li>
-          <li>
-            <Link href="/deepcuts" className={`hover:text-blue-700 ${isActive('/deepcuts') ? 'underline' : ''}`}>Deep Cuts</Link>
-          </li>
+
         </ul>
       </nav>
     </header>
   );
 }
+
+export default Header;
