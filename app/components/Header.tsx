@@ -42,11 +42,11 @@ export default function Header() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className={`bg-slate-100 ${alertData && alertData[0] === "TRUE" ? 'h-22' : 'h-10'}`}> 
+    <header className={`bg-slate-100 ${alertData && alertData[0] === "TRUE" ? 'h-22' : 'h-12'}`}> 
       
-      {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} />}
+      {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} showAlert={true} />}
       
-      <nav className="flex items-center justify-between h-10 p-3 mt-0 text-slate-400">
+      <nav className="flex items-center justify-between h-12 p-3 mt-0 text-slate-400">
         <h1 className="mt-1 ml-2 sm:ml-4 md:ml-10">
           <Link href="/">Mark Condor</Link>
         </h1>
@@ -92,7 +92,7 @@ export default function Header() {
             </ul>
           </div>
         </div>
-        <ul className="hidden md:flex space-x-4 mt-1 mr-10">
+        <ul className="hidden md:flex space-x-4 mt-1 mr-2">
           <li>
             <Link href="/shop" className={`hover:text-blue-700 ${isActive('/shop') ? 'underline' : ''}`}>Shop</Link>
           </li>
