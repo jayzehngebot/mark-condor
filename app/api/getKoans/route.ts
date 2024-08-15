@@ -8,7 +8,7 @@ export async function GET() {
         );
     
         if (!response.ok) {
-          throw new Error("Failed to fetch alert data");
+          throw new Error("Failed to fetch koans");
         }
     
         const data = await response.json();
