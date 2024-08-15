@@ -1,0 +1,20 @@
+.button {
+    height: 24px;
+    width: 24px;
+    border-radius: 1px;
+    position: relative;
+    color: #FFF;
+}
+
+.button:after {
+    /* position: absolute; */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\274c"; /* use the hex value here... */
+    /* font-size: 12px;  */
+    color: #FFF;
+    line-height: 12px;
+    text-align: center;
+}

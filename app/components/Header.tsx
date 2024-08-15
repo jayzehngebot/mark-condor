@@ -22,7 +22,6 @@ export default function Header() {
         throw new Error("Failed to fetch alert data");
       }
       
-      console.log(response.json);
       return await response.json();
     } catch (error) {
       console.error("Error fetching alert text:", error);
@@ -46,19 +45,19 @@ export default function Header() {
       
       {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} showAlert={true} />}
       
-      <nav className="flex items-center justify-between h-12 p-3 mt-0 text-slate-400">
-        <h1 className="mt-1 ml-2 sm:ml-4 md:ml-10">
+      <nav className="flex items-center justify-between h-12 mt-0 text-slate-400">
+        <h1 className="mt-0 ml-4 sm:ml-4 md:ml-10">
           <Link href="/">Mark Condor</Link>
         </h1>
-        <div className="relative md:hidden">
+        <div className="relative md:hidden pr-1">
           <button 
             id="dropdownDefaultButton" 
             data-dropdown-toggle="dropdown" 
-            className="text-white w-full bg-blue-700 ml-50 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm pl-6 py-0 text-center inline-flex items-center" 
+            className="pl-7 pr-3 sm:pr-5 py-0 text-white w-full bg-blue-700 ml-50 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" 
             type="button"
             onClick={toggleDropdown}
           >
-            Offerings 
+              Offerings
             <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
             </svg>
@@ -92,7 +91,7 @@ export default function Header() {
             </ul>
           </div>
         </div>
-        <ul className="hidden md:flex space-x-4 mt-1 mr-2">
+        <ul className="hidden md:flex space-x-4 mt-0 mr-5">
           <li>
             <Link href="/shop" className={`hover:text-blue-700 ${isActive('/shop') ? 'underline' : ''}`}>Shop</Link>
           </li>

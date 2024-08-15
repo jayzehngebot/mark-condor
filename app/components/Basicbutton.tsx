@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./Basicbutton.module.css";
 
 interface BasicButtonProps {
     showAlert: boolean;
@@ -12,6 +13,6 @@ export default function Basicbutton({ showAlert, setShowAlert }: BasicButtonProp
     }
 
     return (
-        <button className="bg-slate-800 text-white p-3" onClick={handleClick}>X</button>
+        <button className={`${styles.button} bg-slate-900`} onClick={handleClick}></button>
     )
 }
