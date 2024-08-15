@@ -1,7 +1,7 @@
 .button {
-    height: 24px;
-    width: 24px;
-    border-radius: 1px;
+    height: 23px;
+    width: 23px;
+    border-radius: 2px;
     position: relative;
     color: #FFF;
 }
