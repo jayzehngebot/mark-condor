@@ -24,7 +24,11 @@ export default function Alert({alertText, showAlert}: AlertProps) {
                 dangerouslySetInnerHTML={{ __html: alertText }}
             ></div>
             <div className="absolute right-0 items-center justify-right p-0 pr-2 sm:pr-5 m-0 text-white dark:text-grey ml-auto">
-                <Basicbutton showAlert={isAlertVisible} setShowAlert={handleCloseAlert} />
+                <Basicbutton 
+                    showAlert={isAlertVisible} 
+                    setShowAlert={handleCloseAlert} 
+                    buttonLabel="Close Sale Alert"
+                />
             </div>
         </div>
     );
