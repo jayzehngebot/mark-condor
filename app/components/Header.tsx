@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
-import Alert from './Nualert'; // Import the default export
+import Alert from './Alert'; // Import the default export
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
