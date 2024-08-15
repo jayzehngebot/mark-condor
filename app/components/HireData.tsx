@@ -45,11 +45,11 @@ export default async function HireData() {
                 <tbody>
                     {hireData.map((hire: any, index: number) => (
                         <tr key={hire.id} className="bg-slate-900 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <th scope="row" className="px-2 py-3 sm:px-6 sm:py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {hire.packageDescription}
                             </th>
-                            <td className="px-6 py-4">{hire.cost}</td>
-                            <td className="px-6 py-4">{hire.time}</td>
+                            <td className="px-2 py-3 sm:px-6 sm:py-3">{hire.cost}</td>
+                            <td className="px-2 py-3 sm:px-6 sm:py-3">{hire.time}</td>
                         </tr>
                     ))}
                 </tbody>
