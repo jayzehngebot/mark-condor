@@ -8,25 +8,23 @@ export async function GET() {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch alert data");
+      throw new Error("Failed to fetch projects data");
     }
 
     const data = await response.json();
     const [headers, ...rows] = data.values;
 
-    // Function to transform the array to a JSON object
-    const transformData = (row: any) => {
+    // the headers should define the keys of the object
+    const transformedData = rows.map((row: any) => {
       return row.reduce((acc: any, value: any, index: any) => {
+        acc[headers[index]] = value; // Use headers to define keys
         return acc;
       }, {});
-    };
-
-    // Transform the rows into an array of objects
-    const transformedData = rows.map(transformData);
+    });
 
     console.log(transformedData);
     return NextResponse.json(transformedData);
-    // return NextResponse.json([enabled, alert]);
+
   } catch (error) {
     console.error("Error fetching alert text:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

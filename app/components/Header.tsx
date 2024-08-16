@@ -13,6 +13,9 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   async function getAlerts() {
     try {
@@ -53,7 +56,7 @@ export default function Header() {
           <button 
             id="dropdownDefaultButton" 
             data-dropdown-toggle="dropdown" 
-            className="pl-7 pr-3 sm:pr-5 py-0 text-white w-full bg-blue-700 ml-50 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" 
+            className="pl-7 pr-3 sm:pr-5 py-0 text-white w-full bg-blue-700 ml-50 hover:bg-blue-800 focus:outline-none rounded-lg text-center inline-flex items-center" 
             type="button"
             onClick={toggleDropdown}
           >
@@ -65,28 +68,28 @@ export default function Header() {
           <div id="dropdown" className={`${isOpen ? styles.dropdownOpen : styles.dropdownClosed} z-50 absolute right-[-12px] w-full bg-slate-100 rounded-b divide-y bg-color-grey divide-gray-100 shadow bg-gray-700`}>
             <ul className="py-2 text-md text-gray-200 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
               <li>
-                <Link href="/shop" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Shop</Link>
+                <Link href="/shop" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Shop</Link>
               </li>
               <li>
-                <Link href="/projects" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Projects</Link>
+                <Link href="/projects" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Projects</Link>
               </li>
               <li>
-                <Link href="/testimony" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Testimony</Link>
+                <Link href="/testimony" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Testimony</Link>
               </li>
               <li>
-                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">You x M.C.</Link>
+                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>You x M.C.</Link>
               </li>
               <li>
-                <Link href="/thoughts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Thoughts</Link>
+                <Link href="/thoughts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Thoughts</Link>
               </li>
               <li>
-                <Link href="/sources" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Sources</Link>
+                <Link href="/sources" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Sources</Link>
               </li>
               <li>
-                <Link href="/about" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">About</Link>
+                <Link href="/about" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>About</Link>
               </li>
               <li>
-                <Link href="/deepcuts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white">Deep Cuts</Link>
+                <Link href="/deepcuts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Deep Cuts</Link>
               </li>
             </ul>
           </div>
