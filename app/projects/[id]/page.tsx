@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     return (
         <div className="flex flex-col items-center justify-center h-auto mt-40">
             <h1 className="text-4xl font-bold">Project : {project.name}</h1>
-            <Image priority={true} src={`/projects/${project.image}`} alt={project.name} width={600} height={600} />
+            <Image priority={true} src={`/projectimages/${project.image}`} alt={project.name} width={600} height={600} />
         </div>
     )
   }
