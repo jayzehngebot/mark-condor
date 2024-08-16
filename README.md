@@ -11,5 +11,3 @@ Mark Condor is an Alt Persona : Think Marie Kondo but a dude who likes NASA, eff
 
 Also, this is a space for me to experiment with new ideas and technologies.
 
-Check out my 100%s?
-https://pagespeed.web.dev/analysis/https-www-markcondor-com/a2hsxsurj6?form_factor=mobile
