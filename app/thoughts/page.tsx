@@ -37,7 +37,7 @@ interface Thought {
     id: number;
     text: string;
     subhead: string;
-    image: string;
+    image: string[];
     title: string;
 }
 
@@ -83,7 +83,15 @@ export default function Thoughts() {
             {/* Thoughts cards */}
             <div className="flex flex-col items-center text-center justify-center h-auto mt-2 sm:mt-0 p-2 sm:p-10">
                 {thoughts.map((thought) => (
-                    <Basecard key={thought.id} id={thought.id} wide={true} title={thought.title} description={thought.subhead} source_url={`/thoughts/${thought.id}`} />
+                    <Basecard 
+                        key={thought.id} 
+                        id={thought.id} 
+                        wide={true} 
+                        title={thought.title} 
+                        description={thought.subhead} 
+                        source_url={`/thoughts/${thought.id}`} 
+                        images={thought.image}
+                    />
                 ))}
             </div>
 
