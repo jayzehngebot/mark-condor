@@ -37,7 +37,7 @@ interface Thought {
     id: number;
     text: string;
     subhead: string;
-    image: string[];
+    image: string;
     title: string;
 }
 
@@ -90,7 +90,7 @@ export default function Thoughts() {
                         title={thought.title} 
                         description={thought.subhead} 
                         source_url={`/thoughts/${thought.id}`} 
-                        images={thought.image}
+                        image={thought.image}
                     />
                 ))}
             </div>
