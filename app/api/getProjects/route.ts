@@ -3,9 +3,11 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/projects?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-      { next: { revalidate: 300 } } // 5 mins
+      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/projects?key=${process.env.GOOGLE_SHEETS_API_KEY}`
     );
+
+    // Set revalidation header
+    response.headers.set('Cache-Control', 's-maxage=300, stale-while-revalidate');
 
     if (!response.ok) {
       throw new Error("Failed to fetch projects data");
