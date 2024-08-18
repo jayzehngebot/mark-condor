@@ -3,11 +3,9 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/projects?key=${process.env.GOOGLE_SHEETS_API_KEY}`
+      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/projects?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
+      { cache: 'no-store' } // Correctly place the cache option
     );
-
-    // Set revalidation header
-    response.headers.set('Cache-Control', 's-maxage=300, stale-while-revalidate');
 
     if (!response.ok) {
       throw new Error("Failed to fetch projects data");
@@ -25,10 +23,14 @@ export async function GET() {
     });
 
     console.log(transformedData);
-    return NextResponse.json(transformedData);
+
+    // Set revalidation header on the response you return
+    const nextResponse = NextResponse.json(transformedData);
+    nextResponse.headers.set('Cache-Control', 's-maxage=300, stale-while-revalidate');
+    return nextResponse;
 
   } catch (error) {
     console.error("Error fetching alert text:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
-}   
+}
