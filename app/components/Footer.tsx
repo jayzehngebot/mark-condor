@@ -1,6 +1,6 @@
 import Contact from "./Contact";
 import "./Footer.module.css";
-// import VisitorCount from "./VisitorCount";
+import VisitorCount from "./VisitorCount";
 
 export default function Footer() {
     return (
@@ -8,7 +8,7 @@ export default function Footer() {
             <footer className="w-full">
                 <div className="flex flex-col items-left justify-left h-auto p-3 sm:p-10">
                     <Contact />
-                    {/* <VisitorCount /> */}
+                    <VisitorCount />
                 </div>
             </footer>
 

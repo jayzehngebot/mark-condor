@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
 import Alert from './Alert'; // Import the default export
-import Search from './Search'; // Correct the import path
+// import Search from './Search'; // Correct the import path
 
 
 export default function Header() {

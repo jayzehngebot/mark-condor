@@ -3,8 +3,6 @@
 import './Search.module.css';
 
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 type SearchProps = {
     input: string;
@@ -43,7 +41,9 @@ class Search extends Component<SearchProps, { input: string }> {
                         value={this.state.input}
                         onChange={this.handleInputChange}
                     />
-                    <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={this.handleIconClick} />
+                    <button type="submit" className="search-button">
+                        {String.fromCodePoint(0x1f50d)}
+                    </button>
                 </form>
             </div>
         );
