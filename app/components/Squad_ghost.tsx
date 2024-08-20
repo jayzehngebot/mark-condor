@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 
 import ghoststyle from './Squad_ghost.module.css';
 
@@ -8,22 +8,22 @@ export default function Squad_ghost() {
     const [isFollowing, setIsFollowing] = useState(true);
     const [isDragging, setIsDragging] = useState(false);
 
-    // Unified event handler for mouse and touch move
-    const handleMove = (clientX: number, clientY: number) => {
+    // Wrap handleMove with useCallback
+    const handleMove = useCallback((clientX: number, clientY: number) => {
         if (!isDragging) return;
         setPosition({ x: clientX, y: clientY });
-    };
+    }, [isDragging]); // Include isDragging in the dependency array
 
     // Mouse move event handler adjusted for native events
-    const handleMouseMove = (event: MouseEvent) => {
+    const handleMouseMove = useCallback((event: MouseEvent) => {
         handleMove(event.clientX, event.clientY);
-    };
+    }, [handleMove]); // Add handleMove to the dependency array
 
-    // Touch move event handler
-    const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    // Wrap handleTouchMove with useCallback
+    const handleTouchMove = useCallback((event: React.TouchEvent<HTMLDivElement>) => {
         event.preventDefault(); // Prevents scrolling during touch
         handleMove(event.touches[0].clientX, event.touches[0].clientY);
-    };
+    }, [handleMove]); // Add handleMove to the dependency array
 
     // Setup event listeners for mouse and touch
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function Squad_ghost() {
             window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener );
             window.removeEventListener('touchend', handleTouchEnd);
         };
-    }, [isDragging]);
+    }, [isDragging, handleMouseMove, handleTouchMove]); // Include the handlers in the dependency array
 
     // Start dragging
     const startDrag = () => {

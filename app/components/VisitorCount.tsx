@@ -13,7 +13,7 @@ export default function VisitorCount() {
         if (hasVisited) {
             localStorage.setItem("hasVisited", "true");
         }
-    }, [hasVisited]);
+    }, [hasVisited]); // hasVisited is now correctly included in the dependency array
 
     useEffect(() => {
         console.log("fetching visitor count");
@@ -33,7 +33,7 @@ export default function VisitorCount() {
             .catch((error) => {
                 console.error("Error fetching visitor count:", error);
             });
-    }, []);
+    }, [hasVisited]);
     return (
         <div className="text-medium font-light text-color-slate-800">Total Visitors : {count !== 0 ? count : ""}</div>
 
