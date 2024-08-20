@@ -21,3 +21,6 @@ kill -9 $(pgrep -f '^next-server')
 
 back to all 100s
 https://pagespeed.web.dev/analysis/https-www-markcondor-com/gebrdp6g77?form_factor=mobile
+
+
+https://onenr.io/07jbvE9Gkjy
