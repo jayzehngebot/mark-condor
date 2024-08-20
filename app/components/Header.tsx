@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
 import Alert from './Alert'; // Import the default export
+import Search from './Search'; // Correct the import path
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,9 +51,11 @@ export default function Header() {
       {alertData && alertData[0] === "TRUE" && <Alert alertText={alertData[1]} showAlert={true} />}
       
       <nav className="flex items-center justify-between h-12 mt-0 text-slate-400">
-        <h1 className="mt-0 ml-4 sm:ml-4 md:ml-10">
-          <Link href="/">Mark Condor</Link>
-        </h1>
+        <div className="flex items-center">
+          <h1 className="mt-0 ml-4 sm:ml-4 md:ml-10">
+            <Link href="/">Mark Condor</Link>
+          </h1>
+        </div>
         <div className="relative md:hidden pr-1">
           <button 
             id="dropdownDefaultButton" 
@@ -89,7 +93,7 @@ export default function Header() {
                 <Link href="/about" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>About</Link>
               </li>
               <li>
-                <Link href="/deepcuts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Deep Cuts</Link>
+                <Link href="/squad" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Squad</Link>
               </li>
             </ul>
           </div>
@@ -117,8 +121,13 @@ export default function Header() {
             <Link href="/about" className={`hover:text-blue-700 ${isActive('/about') ? 'underline' : ''}`}>About</Link>
           </li>
           <li>
-            <Link href="/deepcuts" className={`hover:text-blue-700 ${isActive('/deepcuts') ? 'underline' : ''}`}>Deep Cuts</Link>
+            <Link href="/squad" className={`hover:text-blue-700 ${isActive('/squad') ? 'underline' : ''}`}>Squad</Link>
           </li>
+          {/* <li>
+            <div className="ml-4 pr-1">
+              <Search input="yourInputValue" />
+            </div>
+          </li> */}
         </ul>
       </nav>
     </header>

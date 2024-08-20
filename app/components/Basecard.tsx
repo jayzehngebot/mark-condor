@@ -1,7 +1,6 @@
 // a card that can be used for any page
 
 type BasecardProps = {
-    key: number;
     id: number;
     title: string;
     description: string;
@@ -12,7 +11,7 @@ type BasecardProps = {
     openInNewTab?: boolean; // Added prop
 };
 
-const Basecard: React.FC<BasecardProps> = ({ key, id, title, description, source_url, wide, tags, image, openInNewTab }) => {
+const Basecard: React.FC<BasecardProps> = ({ id, title, description, source_url, wide, tags, image, openInNewTab }) => {
     return (
         <div id={`source_${id}`} className={`bg-slate-900 rounded-lg shadow-md ${wide ? 'w-full' : 'w-full sm:w-1/3 md:w-1/4 lg:w-1/4'} h-40 m-4`}>
             <a href={`${source_url}`} target={openInNewTab ? "_blank" : "_self"} aria-label={`Visit ${title}`}>
