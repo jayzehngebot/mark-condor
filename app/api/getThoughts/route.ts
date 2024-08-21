@@ -4,7 +4,7 @@ export async function GET() {
     try {
         const response = await fetch(
           `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/thoughts?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-          { next: { revalidate: 300 } } // 5 mins
+          { next: { revalidate: 0 } } // 5 mins
         );
     
         if (!response.ok) {
@@ -13,17 +13,17 @@ export async function GET() {
         const data = await response.json();
         const [headers, ...rows] = data.values; 
         // format the data
-        const transformData = (row: any) => {
-            return row.map((row: any) => ({
-                id: row[0],
-                title: row[1],
-                subhead: row[2],
-                image: row[3],
-                text: row[4]
-            }));
+        const transformData = (headers: string[], rows: any[]) => {
+            return rows.map((row: any) => {
+                let obj: any = {};
+                headers.forEach((header, index) => {
+                    obj[header] = row[index];
+                });
+                return obj;
+            });
         };
 
-        const transformedData = transformData(rows);
+        const transformedData = transformData(headers, rows);
         return NextResponse.json(transformedData);
     } catch (error) {
         console.error("Error fetching thought data:", error);

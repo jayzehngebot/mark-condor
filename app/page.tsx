@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 // import dynamic from "next/dynamic";
 
@@ -20,10 +18,11 @@ export default function Home() {
       <div className="w-full max-w-4xl mx-auto mt-8 mb-8">
         <div className="relative h-96">
           <Image
-            src="/about/mc_rides_02.png"
-            alt="Large Image Description"
-            layout="fill"
-            objectFit="cover"
+            priority={true}
+            src="/about/mc_rides_02-2.webp"
+            alt="The Condor Rides"
+            fill
+            style={{ objectFit: "cover" }}
             className="rounded-lg"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -46,4 +45,3 @@ export default function Home() {
     </main>
   );
 }
-

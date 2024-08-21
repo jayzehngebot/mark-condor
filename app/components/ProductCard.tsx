@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 
 interface ProductData {
@@ -17,10 +16,11 @@ export default function ProductCard({productData}: {productData: ProductData}) {
                 <Image
                 src={`/products/images/${productData.imageURL}`}
                 alt={productData.alt}
-                width={150}
-                height={150}
+                width={100}
+                height={100}
                 blurDataURL="data:..."
                 placeholder="blur"
+                style={{ width: 'auto', height: 'auto' }}
                 />
             </a>
         </li>

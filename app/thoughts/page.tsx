@@ -36,9 +36,10 @@ interface Koan {
 interface Thought {
     id: number;
     text: string;
-    subhead: string;
+    subhed: string;
     image: string;
     title: string;
+    description: string; // Added this line
 }
 
 export default function Thoughts() {
@@ -88,9 +89,10 @@ export default function Thoughts() {
                         id={thought.id} 
                         wide={true} 
                         title={thought.title} 
-                        description={thought.subhead} 
+                        subhed={thought.subhed} 
                         source_url={`/thoughts/${thought.id}`} 
                         image={thought.image}
+                        description={thought.description} // Added this line
                     />
                 ))}
             </div>
