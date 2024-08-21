@@ -26,6 +26,8 @@ export function generateStaticParams() {
     return (
         <div className="flex flex-col items-center justify-center h-auto mt-40">
             <h1 className="text-4xl font-bold">Thought : {id}</h1>
+            
+            {/* dangerouslySetInnerHTML={{ __html: html }} */}
         </div>
     )
   }
