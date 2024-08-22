@@ -41,8 +41,8 @@ export default async function Shop() {
     const products = await fetchProducts();
     return (
         <div className="flex flex-col items-center p-10">
-            <h1 className="text-4xl text-center mt-4 text-slate-400 mb-4">MC Endorsed Products</h1>
-            <ul className="flex wx-auto">
+            <h1 className="text-4xl text-center mt-4 text-slate-400 mb-12">MC Endorsed Products</h1>
+            <ul className="grid grid-cols-3 sm:grid-cols-5 gap-4">
                 {products.map((product: any) => (
                     <ProductCard key={product.id} productData={product} />
                 ))}
