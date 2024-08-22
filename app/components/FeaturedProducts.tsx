@@ -1,4 +1,3 @@
-
 import ProductCard from "../components/ProductCard"
 
 async function fetchProducts() {
@@ -21,7 +20,7 @@ async function fetchProducts() {
 
     // Transform the rows into an array of objects
     const transformedData = rows.map(transformData);
-    const featuredProducts = transformedData.filter((product: any) => product.featured);
+    const featuredProducts = transformedData.filter((product: any) => product.featured === 'TRUE');
 
     return featuredProducts;
 }
