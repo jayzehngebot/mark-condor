@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between px-6">
       <div className="w-full max-w-4xl mx-auto mt-8 mb-8">
-        <div className="relative h-96">
+        <div className="relative h-48 sm:h-96">
           <Image
             priority={true}
             src="/about/mc_rides_02-2.webp"
@@ -24,7 +24,7 @@ export default function Home() {
             className="rounded-lg"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <h1 className="text-2xl sm:text-4xl text-center mt-4 text-slate-400">The Condor Method</h1>
+            <h1 className="text-xl sm:text-4xl text-center mt-4 text-slate-400">The Condor Method</h1>
           </div>
         </div>
       </div>

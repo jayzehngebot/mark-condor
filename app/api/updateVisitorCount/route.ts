@@ -59,9 +59,10 @@ async function getCount() {
 
 export async function GET(req: NextRequest) { // Change type to NextRequest
     const url = new URL(req.url || '', `http://${req.headers.get('host')}`); // Use req.headers.get('host') instead of req.headers.host
-    const hasVisited = url.searchParams.get("hasVisited");
+    const firstVisit = url.searchParams.get("firstVisit");
+    console.log("firstVisit 3", firstVisit);
     // if they have visited, just call getCount
-    if (hasVisited === "true") {
+    if (firstVisit === "false") {
         const count = await getCount();
         return NextResponse.json({ count: count.values[1][0] });
     } else {

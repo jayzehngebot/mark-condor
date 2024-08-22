@@ -3,7 +3,15 @@ import {useState, useEffect, useCallback} from 'react';
 import ghoststyle from './Squad_ghost.module.css';
 
 export default function Squad_ghost() {
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    
+    const getRandomPosition = () => {
+        const x = typeof window !== 'undefined' ? Math.floor(Math.random() * window.innerWidth) : 0;
+        const y = typeof window !== 'undefined' ? Math.floor(Math.random() * window.innerHeight) : 0;
+        return { x, y };
+    };
+
+    const initialPosition = getRandomPosition();
+    const [position, setPosition] = useState(initialPosition);
     const [showBubble, setShowBubble] = useState(false);
     const [isFollowing, setIsFollowing] = useState(true);
     const [isDragging, setIsDragging] = useState(false);
