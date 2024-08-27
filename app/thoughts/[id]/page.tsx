@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import './thoughts.css';
-
+import ThoughtContent from './ThoughtContent'
 
 async function getThoughts() {
   try {
@@ -48,14 +48,5 @@ export default async function Page({ params }: { params: { id: string } }) {
       );
     }
 
-    return (
-        <div className="flex flex-col items-center justify-center h-auto mt-40">
-            <h1 className="text-4xl font-bold">{thought.title}</h1>
-            <p className="text-2xl text-gray-500">{thought.subhed}</p>
-            
-            <div className="flex flex-col items-left text-left justify-left h-auto mt-2 sm:w-1/2 sm:mt-0 p-2 sm:p-10">
-                <div className="text-medium text-slate-500 paragraph-padding" style={{ textIndent: '0' }} dangerouslySetInnerHTML={{ __html: thought.text }}></div>
-            </div>
-        </div>
-    )
-  }
+    return <ThoughtContent thought={thought} />;
+}
