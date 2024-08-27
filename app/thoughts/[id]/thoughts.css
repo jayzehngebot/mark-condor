@@ -1,8 +1,8 @@
-p {
+.thought-content p{
     padding-bottom: 10px;
 }
 
-li {
+.thought-content li {
     padding-bottom: 20px;
 }
 
@@ -10,7 +10,7 @@ li {
     opacity: 0;
 }
 
-.fade-in {
+.thought-content .fade-in {
     animation: fadeIn 0.5s ease-in forwards;
 }
 

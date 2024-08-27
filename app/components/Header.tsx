@@ -7,6 +7,7 @@ import styles from './Header.module.css'; // Import the CSS module
 import Alert from './Alert'; // Import the default export
 // import Search from './Search'; // Correct the import path
 
+let cachedAlertData: [string, string] | null = null;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,10 @@ export default function Header() {
   };
 
   async function getAlerts() {
+    if (cachedAlertData) {
+      return cachedAlertData;
+    }
+
     try {
       const response = await fetch('/api/getAlerts', { cache: "no-cache" });
       
@@ -27,7 +32,9 @@ export default function Header() {
         throw new Error("Failed to fetch alert data");
       }
       
-      return await response.json();
+      const data = await response.json();
+      cachedAlertData = data; // Cache the data
+      return data;
     } catch (error) {
       console.error("Error fetching alert text:", error);
       throw error;
