@@ -74,15 +74,15 @@ export default function Thoughts() {
     }, [koans]);
 
     return (
-        <div className="flex flex-col items-center text-centerjustify-center h-100 p-2 sm:p-6">
+        <div className="flex w-full flex-col items-center justify-center h-auto p-2 sm:p-10">
             {koans.length > 0 && (
-            <div className="text-lg sm:text-4xl text-center mt-6 sm:mt-6 text-slate-400 koan">
+            <div className="text-4xl text-center mt-4 text-slate-400 mb-4 koan">
                 {koans[currentKoanIndex]?.koan || 'No koan available'}
             </div>
             )}
 
             {/* Thoughts cards */}
-            <div className="flex flex-col items-center text-center justify-center h-auto mt-2 sm:mt-0 p-2 sm:p-10">
+            <div className="flex flex-col items-center text-center justify-center sm:m-10">
                 {thoughts.map((thought) => (
                     <Basecard 
                         key={thought.id} 

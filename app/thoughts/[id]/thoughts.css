@@ -1,16 +1,16 @@
-.thought-content p{
+#thought-content p{
     padding-bottom: 10px;
 }
 
-.thought-content li {
+#thought-content li {
     padding-bottom: 20px;
 }
 
-.hidden {
-    opacity: 0;
+#thought-content .hidden {
+    display: none;
 }
 
-.thought-content .fade-in {
+#thought-content .fade-in {
     animation: fadeIn 0.5s ease-in forwards;
 }
 

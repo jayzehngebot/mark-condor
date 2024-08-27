@@ -21,7 +21,7 @@ export default function ThoughtContent({ thought }: { thought: Thought }) {
             setTimeout(() => {
                 el.classList.remove('hidden');
                 el.classList.add('fade-in');
-            }, index * 100);
+            }, index * 200);
         });
     }, []);
 

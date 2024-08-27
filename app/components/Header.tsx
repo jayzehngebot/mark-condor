@@ -105,7 +105,7 @@ export default function Header() {
             </ul>
           </div>
         </div>
-        <ul className="md:flex space-x-4 mt-0 mr-5">
+        <ul id="desktop-nav" className="hidden md:flex space-x-4 mt-0 mr-5">
           <li>
             <Link href="/shop" className={`hover:text-blue-700 ${isActive('/shop') ? 'underline' : ''}`}>Shop</Link>
           </li>
