@@ -21,7 +21,7 @@ async function fetchProducts() {
     // Transform the rows into an array of objects
     const transformedData = rows.map(transformData);
     const featuredProducts = transformedData.filter((product: any) => product.featured === 'TRUE');
-
+    // TODO: SHOW UP TO 8 FEATURED PRODUCTS, if more than 8, show 8 and add a "View More" link that goes to /shop
     return featuredProducts;
 }
 
@@ -37,8 +37,8 @@ interface Product {
 export default async function Shop() {
     const products = await fetchProducts();
     return (
-        <div className="flex flex-col items-center">
-            <ul className="flex wx-auto">
+        <div className="grid items-center">
+            <ul className="grid grid-cols-4 sm:grid-cols-6 w-auto">
                 {products.map((product: any) => (
                     <ProductCard key={product.id} productData={product} />
                 ))}

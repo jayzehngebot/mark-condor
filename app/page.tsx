@@ -17,13 +17,13 @@ export default function Home() {
         <div className="relative h-48 sm:h-96">
           <Image
             priority={true}
-            src="/about/mc_rides_02-2.webp"
+            src="/about/mc_rides_02-3.webp"
             alt="The Condor Rides"
             fill
             style={{ objectFit: "cover" }}
             className="rounded-lg"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-slate-900 bg-opacity-65 flex items-center justify-center">
             <h1 className="text-xl sm:text-4xl text-center mt-4 text-slate-400">The Condor Method</h1>
           </div>
         </div>
