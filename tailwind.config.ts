@@ -26,6 +26,14 @@ const config: Config = {
       "slate-900": "#1e293b",
     },
     extend: {
+      screens: {
+        xlg: "1280px",
+      },
+      maxWidth: {
+        '7xl': '60rem', // Defines the max-width for 7xl as 80rem (1280px)
+        '6xl': '50rem', // Defines the max-width for 8xl as 80rem (1280px)
+        '2xl': '40rem', // Defines the max-width for 2xl as 40rem (640px)
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

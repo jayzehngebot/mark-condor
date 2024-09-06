@@ -33,7 +33,7 @@ export default async function HireData() {
     const hireData = await fetchHireData();
     console.log(hireData);
     return (
-        <div className="relative w-full sm:w-1/2 overflow-x-auto shadow-md sm:rounded-lg sm:m-10">
+        <div className="relative w-full sm:w-1/2 lg:w-2/3 xlg:w-2/3 max-w-7xl overflow-x-auto shadow-md sm:rounded-lg sm:m-10">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-slate-300">
                     <tr>

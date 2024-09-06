@@ -34,7 +34,7 @@ export default function Sources() {
     } 
     
     return (
-        <div className="flex flex-col items-center justify-center h-500 p-10">
+        <div className="flex flex-col items-center justify-center h-500 p-10 max-w-7xl">
             <h1 className="text-4xl text-center mt-4 text-slate-400 w-full pb-10">Sources <span className="hidden sm:inline text-slate-600">(of Inspiration)</span></h1>
             <div className="flex flex-row flex-wrap items-center justify-center w-full sm:ml-4 sm:mr-4 sm:mt-4">
             {sources.map((source: Source) => (

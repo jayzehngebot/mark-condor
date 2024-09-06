@@ -20,6 +20,7 @@ export default function Home() {
             src="/about/mc_rides_02-3.webp"
             alt="The Condor Rides"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
             className="rounded-lg"
           />
