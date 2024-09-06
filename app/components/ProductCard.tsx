@@ -11,7 +11,7 @@ interface ProductData {
 
 export default function ProductCard({productData}: {productData: ProductData}) {
     return (
-        <div id={`source_${productData.id}`} className={`sm:flex sm:flex-row m-1 sm:h-auto bg-slate-900 rounded-lg h-36 w-18 shadow-md bg-opacity-10 items-center`} style={{ backgroundImage: `url('/backgrounds/${productData.id}.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <li id={`source_${productData.id}`} className={`sm:flex sm:flex-row m-1 sm:h-auto bg-slate-900 rounded-lg h-36 w-18 shadow-md bg-opacity-10 items-center`} style={{ backgroundImage: `url('/backgrounds/${productData.id}.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="h-full w-full rounded-lg bg-opacity-90 bg-slate-900 w-20 relative sm:w-10px ">
                 <a href={productData.productURL} target="_blank" className="flex flex-col w-full sm:block">
                     <h2 className="text-slate-500 text-center mt-3 px-1 text-sm leading-tight" style={{ wordBreak: 'break-word', hyphens: 'auto', maxHeight: '3em' }}>{productData.name}</h2>
@@ -30,6 +30,6 @@ export default function ProductCard({productData}: {productData: ProductData}) {
                     </div>
                 </a>
             </div>
-        </div>
+        </li>
     );
 }
