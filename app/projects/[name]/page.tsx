@@ -17,10 +17,10 @@ async function getProjects() {
   }
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { url: string, name: string, description: string } }): Promise<Metadata> {
     return {
-        title: `Project ${params.id}`,
-        description: `Project ${params.id}`,
+        title: `Project ${params.name}`,
+        description: `Project ${params.description}`, 
     }
 }
 
@@ -31,14 +31,17 @@ interface Project {
   description: string;
   image: string;
   url: string;
+  primary_goal: string;
+  secondary_goals: string[];
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { name: string } }) {
     const projects: Project[] = await getProjects();
-    const project = projects.find((p: Project) => p.id === params.id);
+
+    const project = projects.find((p: Project) => p.url === params.name);
 
     if (!project) {
-      console.error(`Project with id ${params.id} not found`);
+      console.error(`Project with name ${params.name} not found`);
       return (
         <div>
           <h1>404 - Project Not Found</h1>
@@ -49,7 +52,9 @@ export default async function Page({ params }: { params: { id: string } }) {
     return (
       <div className="flex flex-col items-center justify-center h-500 p-10">
             <h1 className="text-4xl text-center mt-4 text-slate-400 w-full pb-10">Project : {project.name}</h1>
+            <h2 className="text-2xl text-center mt-4 text-slate-400 w-full pb-10">Primary Goal: {project.primary_goal}</h2>
             <Image priority={true} src={`/projectimages/${project.image}`} alt={project.name} width={600} height={600} />
+            {/* <h3 className="text-2xl text-center mt-4 text-slate-400 w-full pb-10">Secondary Goals: {project.secondary_goals}</h3> */}
         </div>
     )
   }

@@ -25,7 +25,8 @@ async function fetchHireData() {
 interface Hire {
     id: string;
     packageDescription: string;
-    cost: string;
+    sale_price: string;
+    price: string;
     time: string;
 }
 
@@ -37,9 +38,11 @@ export default async function HireData() {
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-slate-300">
                     <tr>
-                        <th scope="col" className="px-6 py-3">Package Description</th>
-                        <th scope="col" className="px-6 py-3">Cost</th>
+                        <th scope="col" className="px-6 py-3">Package</th>
+                        <th scope="col" className="px-6 py-3">Preview</th>
+                        <th scope="col" className="px-6 py-3">Price</th>
                         <th scope="col" className="px-6 py-3">Time</th>
+                        <th scope="col" className="px-6 py-3">Book</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,8 +51,14 @@ export default async function HireData() {
                             <th scope="row" className="px-2 py-3 sm:px-6 sm:py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {hire.packageDescription}
                             </th>
-                            <td className="px-2 py-3 sm:px-6 sm:py-3">{hire.cost}</td>
+                            <td className="px-2 py-3 sm:px-6 sm:py-3">
+                                {hire.exampleURL && <a href={hire.exampleURL} target="_blank" rel="noopener noreferrer">Ex. Project</a>}
+                            </td>
+                            <td className="px-2 py-3 sm:px-6 sm:py-3"><span className="line-through text-gray-500">{hire.price}</span> {hire.sale_price}</td>
                             <td className="px-2 py-3 sm:px-6 sm:py-3">{hire.time}</td>
+                            <td className="px-2 py-3 sm:px-6 sm:py-3">
+                                <a href={`mailto:booking@example.com?subject=Booking for ${hire.packageDescription}`} className="text-blue-500 hover:text-blue-700">Book</a>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

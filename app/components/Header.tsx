@@ -88,7 +88,7 @@ export default function Header() {
                 <Link href="/testimony" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Testimony</Link>
               </li>
               <li>
-                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>You x M.C.</Link>
+                <Link href="/hire" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Hire M.C.</Link>
               </li>
               <li>
                 <Link href="/thoughts" className="block px-[10px] py-2 hover:bg-gray-600 dark:hover:bg-gray-600 dark:hover:text-white" onClick={handleLinkClick}>Thoughts</Link>
@@ -116,7 +116,7 @@ export default function Header() {
             <Link href="/testimony" className={`hover:text-blue-700 ${isActive('/testimony') ? 'underline' : ''}`}>Testimony</Link>
           </li>
           <li>
-            <Link href="/hire" className={`hover:text-blue-700 ${isActive('/hire') ? 'underline' : ''}`}>You x MC</Link>
+            <Link href="/hire" className={`hover:text-blue-700 ${isActive('/hire') ? 'underline' : ''}`}>Hire M.C.</Link>
           </li>
           <li>
             <Link href="/thoughts" className={`hover:text-blue-700 ${isActive('/thoughts') ? 'underline' : ''}`}>Thoughts</Link>
