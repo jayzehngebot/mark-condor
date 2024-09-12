@@ -16,6 +16,8 @@ Mark Condor is an Alt Persona : Think Marie Kondo but a dude who likes NASA, eff
 
 Also, this is a space for me to experiment with new ideas and technologies.
 
+trigger rebuild
+
 Handy:
 kill -9 $(pgrep -f '^next-server')
 
