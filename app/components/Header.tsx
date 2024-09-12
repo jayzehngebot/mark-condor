@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './Header.module.css'; // Import the CSS module
 import Alert from './Alert'; // Import the default export
-// import Search from './Search'; // Correct the import path
 
 let cachedAlertData: [string, string] | null = null;
 
@@ -130,11 +129,6 @@ export default function Header() {
           <li>
             <Link href="/squad" className={`hover:text-blue-700 ${isActive('/squad') ? 'underline' : ''}`}>Squad</Link>
           </li>
-          {/* <li>
-            <div className="ml-4 pr-1">
-              <Search input="yourInputValue" />
-            </div>
-          </li> */}
         </ul>
       </nav>
     </header>
