@@ -1,13 +1,22 @@
 import Image from "next/image";
 
 import FeaturedProducts from "./components/FeaturedProducts";
+import StoryCard from "./components/StoryCard";
 
 import { Metadata } from "next";
+import { getStories } from "./api/getStories/route";
 
 export const metadata: Metadata = {
   title: "Mark Condor : American Tidyguy",
   description: "Mark Condor is the American Tidyguy",
 };
+
+// call the getThoughts function
+const response = await getStories();
+const thoughts = await response.json();
+const firstThought = thoughts[0];
+
+console.log("firstThought", firstThought);
 
 
 export default function Home() {
@@ -30,16 +39,13 @@ export default function Home() {
         </div>
       </div>
 
-      
-
-
-
-
       <div className="bottom-30 left-0 right-0 mb-32 grid text-center">
       <hr className="w-full mx-auto text-slate mb-2"/>
       <h2 className="text-center w-full mb-4 text-lg pt-1">Featured Products</h2>
 
       <FeaturedProducts />
+
+      <StoryCard story={firstThought} />
       </div>
     </main>
   );

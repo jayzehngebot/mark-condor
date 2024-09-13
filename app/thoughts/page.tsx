@@ -20,7 +20,6 @@ async function fetchThoughts(): Promise<Thought[]> {
     try {
         const res = await fetch('/api/getThoughts');
         const data = await res.json();
-        console.log(data);
         return data;
     } catch (error) {
         console.error("Error fetching thoughts data:", error);
@@ -39,7 +38,8 @@ interface Thought {
     subhed: string;
     image: string;
     title: string;
-    description: string; // Added this line
+    description: string;
+    url: string;
 }
 
 export default function Thoughts() {
@@ -53,6 +53,7 @@ export default function Thoughts() {
         dataFetchedRef.current = true;
 
         async function fetchData() {
+            console.log("fetching data");
             const [fetchedKoans, fetchedThoughts] = await Promise.all([
                 fetchKoans(),
                 fetchThoughts()
@@ -90,7 +91,7 @@ export default function Thoughts() {
                         wide={true} 
                         title={thought.title} 
                         subhed={thought.subhed} 
-                        source_url={`/thoughts/${thought.id}`} 
+                        source_url={`/thoughts/${thought.url}`} 
                         image={thought.image}
                         description={thought.description} // Added this line
                     />

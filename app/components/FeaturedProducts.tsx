@@ -38,7 +38,7 @@ export default async function Shop() {
     const products = await fetchProducts();
     return (
         <div className="grid items-center">
-            <ul className="grid grid-cols-4 sm:grid-cols-6 w-auto">
+            <ul className="grid grid-cols-4 sm:grid-cols-6 w-auto mb-10">
                 {products.map((product: any) => (
                     <ProductCard key={product.id} productData={product} />
                 ))}

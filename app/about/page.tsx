@@ -13,7 +13,7 @@ export default function About() {
                 <p>Mark&apos;s approach is meticulous and thoughtful, drawing on his experiences in various fields, including engineering and project management. His hobbies, such as woodworking and minimalist design, reflect his belief that simplicity and efficiency go hand in hand. He believes that a well-organized space is not just about tidiness but about creating an environment where ideas can flourish and projects can come to life.</p><br/>
                 </div>
                 <div className="flex w-full items-center justify-center pb-6 pt-6">
-                <Image width={500} height={500} src="/about/mc_rides.png" alt="Mark Condor" className="flex w-full h-full max-w-2xl rounded-3xl"></Image>
+                <Image width={500} height={500} src="/about/mc_rides.webp" alt="Mark Condor" className="flex w-full h-full max-w-2xl rounded-3xl"></Image>
                 </div>
                 <div className="text-center text-gray-500 text-sm mt-0">Mark Condor riding to the beach on his birthday</div>
             </div>
