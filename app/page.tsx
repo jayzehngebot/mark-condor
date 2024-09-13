@@ -4,20 +4,28 @@ import FeaturedProducts from "./components/FeaturedProducts";
 import StoryCard from "./components/StoryCard";
 
 import { Metadata } from "next";
-import { getStories } from "./api/getStories/route";
 
 export const metadata: Metadata = {
   title: "Mark Condor : American Tidyguy",
   description: "Mark Condor is the American Tidyguy",
 };
 
+async function getStories(){
+  try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getStories`);
+      if (!response.ok) {
+          throw new Error('Failed to fetch stories');
+      }
+      const data = await response.json();
+      return data[0];
+  } catch (error) {
+      console.error('Error fetching stories:', error);
+      return null;
+  }
+
+}
 // call the getThoughts function
-const response = await getStories();
-const thoughts = await response.json();
-const firstThought = thoughts[0];
-
-console.log("firstThought", firstThought);
-
+const firstThought = await getStories();
 
 export default function Home() {
   return (
@@ -45,7 +53,7 @@ export default function Home() {
 
       <FeaturedProducts />
 
-      <StoryCard story={firstThought} />
+      {firstThought && <StoryCard story={firstThought} />}
       </div>
     </main>
   );
