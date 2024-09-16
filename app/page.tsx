@@ -56,8 +56,8 @@ export default function Home() {
 
       <FeaturedProducts />
 
-      {/* <StoryCard story={firstThought} /> */}
-      {typeof window !== 'undefined' && firstThought && <StoryCard story={firstThought} />}
+      <StoryCard story={firstThought} />
+      {/* {typeof window !== 'undefined' && firstThought && <StoryCard story={firstThought} />} */}
 
       </div>
     </main>
