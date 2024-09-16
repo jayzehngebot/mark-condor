@@ -27,6 +27,9 @@ async function getStories(){
 // call the getThoughts function
 const firstThought = await getStories();
 
+console.log(`firstThought: `, firstThought)
+
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between px-6">
@@ -53,7 +56,9 @@ export default function Home() {
 
       <FeaturedProducts />
 
-      {firstThought && <StoryCard story={firstThought} />}
+      {/* <StoryCard story={firstThought} /> */}
+      {typeof window !== 'undefined' && firstThought && <StoryCard story={firstThought} />}
+
       </div>
     </main>
   );

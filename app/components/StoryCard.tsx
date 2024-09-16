@@ -18,9 +18,9 @@ export default function StoryCard({ story }: { story: Story }) {
                         className="rounded-lg" />
                     </div>
                     <div className="w-auto">
-                     <span className="text-slate-400 pb-3">{story.section}</span>
-                        <h2 className="text-xl pb-3">{story.title}</h2>
-                        <p className="text-sm pb-3">{story.description}</p>
+                     <span className="text-slate-400 pb-4">{story.section}</span>
+                        <h2 className="text-xl text-slate-200   ">{story.title}</h2>
+                        <p className="text-sm text-slate-200 pb-4">{story.description}</p>
                         <a href={`/thoughts/${story.url}`} target="_blank" className="text-sm text-slate-400">Read More {'>'}</a>
                     </div>
                 </div>

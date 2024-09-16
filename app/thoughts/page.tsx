@@ -85,9 +85,10 @@ export default function Thoughts() {
             {/* Thoughts cards */}
             <div className="flex flex-col items-center text-center justify-center p-2 sm:m-10">
                 {thoughts.map((thought) => (
-                    <Basecard 
+                    <Basecard
                         key={thought.id} 
                         id={thought.id} 
+                        show_thumbnail={false}
                         wide={true} 
                         title={thought.title} 
                         subhed={thought.subhed} 
