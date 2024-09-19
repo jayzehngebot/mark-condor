@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function About() {
     return (
@@ -8,15 +9,19 @@ export default function About() {
             <div className="flex flex-col items-left text-left justify-left h-auto mt-2 sm:w-1/2 sm:mt-0 p-2 sm:p-10 max-w-6xl">
             
                 <div className="text-medium text-slate-500" style={{ textIndent: '2em' }}>
-                <p>Raised in Florida, molded by Providence, and now based out of Brooklyn, Mark Condor has always had an eye for detail and a passion for creating spaces that inspire productivity and creativity. His journey into professional organization began with a deep fascination for how environments can shape behavior—think Marie Kondo meets NASA.</p><br/>
+                <p>Raised in Florida, forged in Providence, and now based out of Brooklyn, Mark Condor has always had an eye for detail and a passion for creating spaces that inspire productivity and creativity. His journey into professional organization began with a deep fascination for how environments can shape behavior—think Marie Kondo meets NASA.</p><br/>
+                
                 <p>An early interest in structured design and functional aesthetics led Mark to develop his skills in organizing multi-functional office spaces and studios. His path took him from overseeing complex projects to honing his expertise in creating spaces that balance form and function. After years of perfecting his craft in Providence, he moved to Brooklyn, where he built a reputation as a go-to expert for optimizing both personal and professional spaces.</p><br/>
-                <p>Mark&apos;s approach is meticulous and thoughtful, drawing on his experiences in various fields, including engineering and project management. His hobbies, such as woodworking and minimalist design, reflect his belief that simplicity and efficiency go hand in hand. He believes that a well-organized space is not just about tidiness but about creating an environment where ideas can flourish and projects can come to life.</p><br/>
+                
+                <p>Mark&apos;s approach is meticulous and thoughtful, drawing on his experiences in various fields, including software engineering and project management. His hobbies, such as cycling and drawing, reflect his belief that simplicity and efficiency go hand in hand. He believes that a well-organized space is not just about tidiness but about creating an environment where ideas can flourish and projects can come to life.</p><br/>
                 </div>
                 <div className="flex w-full items-center justify-center pb-6 pt-6">
                 <Image width={500} height={500} src="/about/mc_rides.webp" alt="Mark Condor" className="flex w-full h-full max-w-2xl rounded-3xl"></Image>
                 </div>
                 <div className="text-center text-gray-500 text-sm mt-0">Mark Condor riding to the beach on his birthday</div>
+
             </div>
+            <div className="text-center text-slate-400 text-lg mt-0">Curious? <Link href="/faq" className="text-slate-400"> Check out our FAQ</Link></div>
             
         </div>
     )
