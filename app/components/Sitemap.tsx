@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Sitemap() {
   return (
-    <div className="w-full text-white max-w-4xl mx-auto p-4">
+    <div className="w-full text-white max-w-6xl mx-auto p-4">
       <div className="w-full">
         <div className="text-2xl mb-4">Condor Method</div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">

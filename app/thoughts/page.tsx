@@ -36,7 +36,7 @@ interface Thought {
     id: number;
     text: string;
     subhed: string;
-    image: string;
+    image_url: string;
     title: string;
     description: string;
     url: string;
@@ -93,7 +93,7 @@ export default function Thoughts() {
                         title={thought.title} 
                         subhed={thought.subhed} 
                         source_url={`/thoughts/${thought.url}`} 
-                        image={thought.image}
+                        image_url={thought.image_url}
                         description={thought.description} // Added this line
                     />
                 ))}

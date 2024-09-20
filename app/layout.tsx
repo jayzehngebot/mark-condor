@@ -20,7 +20,7 @@ export default function RootLayout({
           <main className="flex-grow w-full">
             {children}
           </main>
-          <hr className="max-w-4xl w-full mx-auto text-slate-600 mb-2"/>
+          <hr className="max-w-6xl w-full mx-auto text-slate-600 mb-2"/>
           <Sitemap />
           <Footer />
 

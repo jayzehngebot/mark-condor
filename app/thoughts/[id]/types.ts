@@ -3,5 +3,5 @@ export interface Thought {
     title: string;
     subhed: string;
     text: string;
-    image: string;
+    image_url: string;
   }

@@ -31,8 +31,11 @@ const config: Config = {
       },
       maxWidth: {
         '7xl': '60rem', // Defines the max-width for 7xl as 80rem (1280px)
-        '6xl': '50rem', // Defines the max-width for 8xl as 80rem (1280px)
-        '2xl': '40rem', // Defines the max-width for 2xl as 40rem (640px)
+        '6xl': '53rem', // Defines the max-width for 8xl as 80rem (1280px)
+        '4xl': '40rem', // Defines the max-width for 4xl as 20rem (320px)
+        '3xl': '30rem', // Defines the max-width for 3xl as 30rem (480px)
+        '2xl': '20rem', // Defines the max-width for 2xl as 40rem (640px)
+
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

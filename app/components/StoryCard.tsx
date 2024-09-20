@@ -5,16 +5,16 @@ interface Story {
     title: string;
     description: string;
     url: string;
-    image: string;
+    image_url: string;
 }
 
 export default function StoryCard({ story }: { story: Story }) {
     return (
         <div>
-            <div className="bg-slate-900 rounded-lg p-4 text-left mb-10 max-w-4xl">
+            <div className="bg-slate-900 rounded-lg p-4 text-left mb-10 max-w-6xl">
                 <div className="flex flex-row">
                     <div className="w-auto pr-6">
-                    <Image src={`/about/${story.image}`} alt="The Condor Rides" width={100} height={100}
+                    <Image src={`${story.image_url}`} alt="The Condor Rides" width={100} height={100}
                         className="rounded-lg" />
                     </div>
                     <div className="w-auto">

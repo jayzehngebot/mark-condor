@@ -1,7 +1,4 @@
-import Head from 'next/head'
 import { Metadata } from 'next'
-import Image from 'next/image'
-import { useEffect, useState } from 'react';
 import './thoughts.css';
 import ThoughtContent from './ThoughtContent'
 
@@ -32,7 +29,7 @@ interface Thought {
   title: string;
   subhed: string;
   text: string;
-  image: string;
+  image_url: string;
 }
 
 export default async function Page({ params }: { params: { id: string } }) {

@@ -30,7 +30,7 @@ export default function Sources() {
         title: string;
         description: string;
         source_url: string;
-        image: string;
+        image_url: string;
     } 
     
     return (
@@ -38,7 +38,7 @@ export default function Sources() {
             <h1 className="text-4xl text-center mt-4 text-slate-400 w-full pb-10">Sources <span className="hidden sm:inline text-slate-600">(of Inspiration)</span></h1>
             <div className="flex flex-row flex-wrap items-center justify-center w-full sm:ml-4 sm:mr-4 sm:mt-4">
             {sources.map((source: Source) => (
-                <Basecard key={source.id} id={source.id} title={source.title} openInNewTab={true} image={source.image} description={source.description} source_url={source.source_url} />
+                <Basecard key={source.id} id={source.id} title={source.title} openInNewTab={true} image_url={source.image_url} description={source.description} source_url={source.source_url} />
             ))}
             </div>
         </div>

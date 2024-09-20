@@ -4,7 +4,7 @@ export async function GET() {
     try {
         const response = await fetch(
           `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/thoughts?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-          { next: { revalidate: 0 } } // 5 mins
+          { next: { revalidate: 300 } } // 5 mins
         );
     
         if (!response.ok) {
@@ -27,7 +27,7 @@ export async function GET() {
         const transformedData = transformData(headers, rows);
         return NextResponse.json(transformedData);
     } catch (error) {
-        console.error("Error fetching thought data:", error);
-        return NextResponse.json({ error: "Failed to fetch thought data" }, { status: 500 });
+        console.error("Error fetching story data:", error);
+        return NextResponse.json({ error: "Failed to fetch story data" }, { status: 500 });
     }
 }

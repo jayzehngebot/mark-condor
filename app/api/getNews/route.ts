@@ -3,14 +3,16 @@ import { NextResponse } from "next/server";
 export async function GET() {
     try {
         const response = await fetch(
-          `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/thoughts?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-          { next: { revalidate: 300 } } // 5 mins
+          `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/news?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
+          { next: { revalidate: 0 } } // 5 mins
         );
     
         if (!response.ok) {
-          throw new Error("Failed to fetch thoughts");
-        }    
+          throw new Error("Failed to fetch news");
+        }
+    
         const data = await response.json();
+        console.log(data);
         const [headers, ...rows] = data.values; 
         // format the data
         const transformData = (headers: string[], rows: any[]) => {
@@ -26,8 +28,10 @@ export async function GET() {
 
         const transformedData = transformData(headers, rows);
         return NextResponse.json(transformedData);
+
     } catch (error) {
-        console.error("Error fetching thought data:", error);
-        return NextResponse.json({ error: "Failed to fetch thought data" }, { status: 500 });
+        console.error("Error fetching news:", error);
+        return NextResponse.json({ error: "Failed to fetch news" }, { status: 500 });
     }
 }
+

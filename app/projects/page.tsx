@@ -18,7 +18,7 @@ type Project = {
     name: string;
     tags: string;
     description: string;
-    image: string;
+    image_url: string;
     url: string;
 };
 
@@ -46,7 +46,7 @@ export default function Projects() {
                 <div className="flex flex-col items-center justify-center w-full sm:ml-4 sm:mr-4 sm:mt-4">
                 {Array.isArray(projects) ? (
                     projects.map((project) => (
-                        <Basecard key={project.id} id={project.id} show_thumbnail={true} openInNewTab={false} source_url={`/projects/${project.url}`} title={project.name} description={project.description} tags={project.tags} image={project.image} />
+                        <Basecard key={project.id} id={project.id} show_thumbnail={true} openInNewTab={false} source_url={`/projects/${project.url}`} title={project.name} description={project.description} tags={project.tags} image_url={project.image_url} />
                     ))
                 ) : (
                     <li>No projects available</li>

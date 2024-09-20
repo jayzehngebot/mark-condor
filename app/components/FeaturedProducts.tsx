@@ -32,6 +32,7 @@ interface Product {
   productURL: string;
   imageURL: string;
   alt: string;
+  category: string;
 }
 
 export default async function Shop() {
