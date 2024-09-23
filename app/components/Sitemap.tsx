@@ -1,11 +1,42 @@
+'use client'
 import { Metadata } from "next";
 import Link from "next/link";
+import { useState } from 'react';
 
 export const metadata: Metadata = {
   title: "Mark Condor - Sitemap",
 };
 
 export default function Sitemap() {
+  const [email, setEmail] = useState('');
+
+  const handleSignUp = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/addToMailingList', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        alert('Successfully signed up!');
+      } else {
+        alert('Failed to sign up.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+
   return (
     <div className="w-full text-white max-w-6xl mx-auto p-4">
       <div className="w-full">
@@ -61,13 +92,15 @@ export default function Sitemap() {
                   Sign up for our newsletter to get the latest news and updates about MC and the Condor Method.
                 </p>
               </div>
-              <input
-                className="w-full p-2 text-black rounded-md"
-                type="email"
-                placeholder="Email"
-              />
-              <br />
-              <button className="mt-4 bg-slate-700 p-2 rounded-md">Sign Up</button>
+                  <input
+                    className="w-full p-2 text-black rounded-md"
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <br />
+                  <button onClick={handleSignUp} className="mt-4 bg-slate-700 p-2 rounded-md">Sign Up</button>
             </ul>
           </div>
         </div>
