@@ -90,7 +90,7 @@ export default function Home() {
       {/* Header Div */}
       <div className="flex flex-col items-center justify-between w-full max-w-6xl mt-6"> 
         <div className="grid grid-cols-1 sm:grid-cols-4 w-full h-90 sm:min-h-[500px]">
-              <div className="col-span-1 sm:col-span-2 min-h-80 rounded-lg overflow-hidden p-4 text-left mb-10 sm:mr-6 max-w-6xl relative" style={{ backgroundImage: `url(/about/mc_rides_02-3.webp)`, backgroundSize: "cover", backgroundPosition: "center" }}>
+              <div className="col-span-1 sm:col-span-2 min-h-80 rounded-lg overflow-hidden p-4 text-left mb-10 sm:mr-6 max-w-6xl relative" style={{ backgroundImage: `url(/about/mc_rides_02-3.webp)`, backgroundSize: "cover", backgroundPositionX: "calc(50% - 100px)" }}>    
                 <div className="absolute inset-0 bg-slate-900 bg-opacity-65"></div>
                 <div className="relative z-10">
                   <h1 className="text-4xl text-white font-bold relative bottom-0 left-0">The Condor <br /> Method</h1>
@@ -115,10 +115,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bottom-30 left-0 right-0 mb-32 grid text-center">
+      <div className="bottom-30 left-0 right-0 mb-10 w-full max-w-6xl grid text-center">
       <hr className="w-full mx-auto text-slate mb-2"/>
-      <h2 className="text-left w-full mb-4 text-lg pt-1">Featured Products</h2>
-
+      
       <FeaturedProducts />
 
       <StoryCard story={firstStory} />

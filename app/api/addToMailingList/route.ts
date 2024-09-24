@@ -1,5 +1,4 @@
-// first, update the count
-// then, return the updated count
+
 import { NextResponse } from "next/server";
 import { google } from 'googleapis'; // Import sheets_v4 along with google
 import { JWT } from 'google-auth-library'; // Import GoogleAuth
@@ -48,53 +47,3 @@ import type { NextRequest } from 'next/server'; // Import NextRequest
             return NextResponse.json({ error: 'Failed to add email to mailing list' }, { status: 500 });
         }
     }
-
-// async function writeEmail(email: string) {
-//     // write to google sheets
-//     try     
-//         const response = await fetch(
-//             `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/subscribers?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-//             { next: { revalidate: 0 } } // 5 mins
-//         );
-    
-//         if (!response.ok) {
-//             throw new Error("failed to fetch emails");
-//         }    
-//         const data = await response.json();
-//         return data;
-//     } catch (error) {
-        
-// }
-
-// async function getCount() {
-//     // fetch from google sheets
-//     try {
-//         const response = await fetch(
-//           `https://sheets.googleapis.com/v4/spreadsheets/${process.env.SHEET_ID}/values/visitors?key=${process.env.GOOGLE_SHEETS_API_KEY}`,
-//           { next: { revalidate: 0 } } // 5 mins
-//         );
-    
-//         if (!response.ok) {
-//           throw new Error("Failed to fetch visitor count");
-//         }    
-//         const data = await response.json();
-//         return data;
-//     } catch (error) {
-//         console.error("Error fetching visitor count:", error);
-//         return 0; // default to 0 in case of error
-//     }
-// }
-
-// export async function GET(req: NextRequest) { // Change type to NextRequest
-//     const url = new URL(req.url || '', `http://${req.headers.get('host')}`); // Use req.headers.get('host') instead of req.headers.host
-//     const firstVisit = url.searchParams.get("firstVisit");
-//     console.log("firstVisit 3", firstVisit);
-//     // if they have visited, just call getCount
-//     if (firstVisit === "false") {
-//         const count = await getCount();
-//         return NextResponse.json({ count: count.values[1][0] });
-//     } else {
-//         const updatedCount = await updateCount();
-//         return NextResponse.json({ count: updatedCount });
-//     }
-// }
