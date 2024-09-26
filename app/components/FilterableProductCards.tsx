@@ -3,25 +3,22 @@ import React from "react";
 import { useState } from "react";
 import ProductCard from "./ProductCard"
 import Link from "next/link";
-export default function FilterableProductCards(products: any) {
+export default function FilterableProductCards(products: any, featured: any) {
 
-    const [filteredProducts, setFilteredProducts] = React.useState(products.products);
-    const [activeCategory, setActiveCategory] = useState<string>("featured");
+    const [filteredProducts, setFilteredProducts] = React.useState(products.featured);
+    const [activeCategory, setActiveCategory] = React.useState("featured");
 
     function handleCategoryClick(category: string) {
-        console.log(products);
-        console.log(category);
+
         setActiveCategory(category);
         // if category is featured, filter the products by category
         if (category === "featured") {
             const newFilteredProducts = products.products.filter((product: any) => product.featured === 'TRUE').slice(0, 6);
             setFilteredProducts(newFilteredProducts);
-            console.log(filteredProducts);
         } else {
             // filter the products by category
             const newFilteredProducts = products.products.filter((product: any) => product.categories === category).slice(0, 6);
             setFilteredProducts(newFilteredProducts);
-            console.log(filteredProducts);
         }
     }
 

@@ -18,14 +18,16 @@ async function fetchProducts() {
     };
 
     const transformedData = rows.map(transformData);
-    console.log(transformedData);
+    // console.log(transformedData);
     const featuredProducts = transformedData.filter((product: any) => product.featured === 'TRUE');
-    return featuredProducts.slice(0, 6); // Show up to 8 products
+    // return featuredProducts.slice(0, 6); // Show up to 8 products
+    const allProducts = transformedData
+    return {allProducts, featuredProducts}; 
 }
 
 export default async function FeaturedProducts() {
     const products = await fetchProducts();
     return (
-        <FilterableProductCards products={products} />
+        <FilterableProductCards products={products.allProducts} featured={products.featuredProducts} />
     );
 }
