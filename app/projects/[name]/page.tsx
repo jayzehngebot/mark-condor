@@ -33,7 +33,7 @@ interface Project {
   name: string;
   tags: string[];
   description: string;
-  image: string;
+  image_url: string;
   url: string;
   primary_goal: string;
   secondary_goals: string[];
@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: { name: string } }) {
       <div className="flex flex-col items-center justify-center h-500 p-10">
             <h1 className="text-4xl text-center mt-4 text-slate-400 w-full pb-10">Project : {project.name}</h1>
             <h2 className="text-2xl text-center mt-4 text-slate-400 w-full pb-10">Primary Goal: {project.primary_goal}</h2>
-            <Image priority={true} src={`/projectimages/${project.image}`} alt={project.name} width={600} height={600} 
+            <Image priority={true} src={`/projectimages/${project.image_url}`} alt={project.name} width={600} height={600} 
             className="rounded-lg"/>
         </div>
     )
