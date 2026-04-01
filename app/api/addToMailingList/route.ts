@@ -17,7 +17,15 @@ import type { NextRequest } from 'next/server'; // Import NextRequest
             if (!email || typeof email !== 'string') {
                 return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
             }
-            console.log("Adding email to mailing list:", email);
+
+            const trimmed = email.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (trimmed.length > 254 || !emailRegex.test(trimmed)) {
+                return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
+            }
+
+            // Prevent Google Sheets formula injection
+            const sanitized = trimmed.replace(/^[=+\-@]+/, '');
 
             // Configure GoogleAuth client for Google Sheets API
             const client = new JWT({
@@ -38,7 +46,7 @@ import type { NextRequest } from 'next/server'; // Import NextRequest
                 range: 'subscribers!A1:A',
                 valueInputOption: 'RAW',
                 insertDataOption: 'INSERT_ROWS',
-                requestBody: { values: [[email]] },
+                requestBody: { values: [[sanitized]] },
             });
 
             return NextResponse.json({ message: 'Email added successfully' }, { status: 200 });
