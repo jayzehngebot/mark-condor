@@ -1,5 +1,5 @@
-
 import FilterableProductCards from "./FilterableProductCards"
+import Image from 'next/image';
 
 async function fetchProducts() {
     const res = await fetch(
