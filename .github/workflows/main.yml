@@ -25,10 +25,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ec2-user@98.87.232.46 << 'EOF'
           cd /home/ec2-user/mc
-          # Example commands to restart services, install dependencies, etc.
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
           npm install
-          npm run build
-          pm2 restart all
+          NODE_OPTIONS='--max-old-space-size=3072' npm run build
+          pm2 restart markcondor
         EOF

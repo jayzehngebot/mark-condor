@@ -18,10 +18,11 @@ async function getNews() {
   }
 }
 
-export async function generateMetadata({ params }: { params: { url: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ url: string }> }): Promise<Metadata> {
+    const { url } = await params;
     return {
-        title: `News ${params.url}`,
-        description: `News ${params.url}`,
+        title: `News ${url}`,
+        description: `News ${url}`,
     }
 }
 
@@ -37,12 +38,13 @@ interface News {
   priority: string;
 }
 
-export default async function Page({ params }: { params: { url: string } }) {
+export default async function Page({ params }: { params: Promise<{ url: string }> }) {
+    const { url } = await params;
     const news: News[] = await getNews();
-    const newsItem = news.find((p: News) => p.url === params.url);
-    
+    const newsItem = news.find((p: News) => p.url === url);
+
     if (!newsItem) {
-      console.error(`News item with url ${params.url} not found`);
+      console.error(`News item with url ${url} not found`);
       return (
         <div>
           <h1>404 - News Item Not Found</h1>

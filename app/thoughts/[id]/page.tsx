@@ -17,10 +17,11 @@ async function getThoughts() {
   }
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params;
     return {
-        title: `Thought ${params.id}`,
-        description: `Thought ${params.id}`,
+        title: `Thought ${id}`,
+        description: `Thought ${id}`,
     }
 }
 
@@ -32,12 +33,13 @@ interface Thought {
   image_url: string;
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
     const thoughts: Thought[] = await getThoughts();
-    const thought = thoughts.find((p: Thought) => p.id === params.id);
+    const thought = thoughts.find((p: Thought) => p.id === id);
 
     if (!thought) {
-      console.error(`Thought with id ${params.id} not found`);
+      console.error(`Thought with id ${id} not found`);
       return (
         <div>
           <h1>404 - Thought Not Found</h1>

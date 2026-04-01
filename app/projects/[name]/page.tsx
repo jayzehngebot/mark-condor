@@ -21,10 +21,11 @@ async function getProjects() {
   }
 }
 
-export async function generateMetadata({ params }: { params: { url: string, name: string, description: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
+    const { name } = await params;
     return {
-        title: `Project ${params.name}`,
-        description: `Project ${params.description}`, 
+        title: `Project ${name}`,
+        description: `Project ${name}`,
     }
 }
 
@@ -39,12 +40,13 @@ interface Project {
   secondary_goals: string[];
 }
 
-export default async function Page({ params }: { params: { name: string } }) {
+export default async function Page({ params }: { params: Promise<{ name: string }> }) {
+    const { name } = await params;
     const projects: Project[] = await getProjects();
-    const project = projects.find((p: Project) => p.url === params.name);
+    const project = projects.find((p: Project) => p.url === name);
 
     if (!project) {
-      console.error(`Project with name ${params.name} not found`);
+      console.error(`Project with name ${name} not found`);
       return (
         <div>
           <h1>404 - Project Not Found</h1>
